@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannotMeh", "CannotMeh.csproj", "{9F030E85-72E7-4EBA-9F5F-7D4F6CB0FB9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F030E85-72E7-4EBA-9F5F-7D4F6CB0FB9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F030E85-72E7-4EBA-9F5F-7D4F6CB0FB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F030E85-72E7-4EBA-9F5F-7D4F6CB0FB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F030E85-72E7-4EBA-9F5F-7D4F6CB0FB9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {470B54F8-B0AC-4959-A631-9E4AF7C5E121}
+	EndGlobalSection
+EndGlobal
