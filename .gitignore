@@ -12,7 +12,7 @@
 *.js linguist-vendored
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+.App_Data/cmDB_log.ldf
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

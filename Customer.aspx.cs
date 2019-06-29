@@ -9,9 +9,28 @@ namespace CannotMeh
 {
     public partial class Customer : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
 
+
+        protected void SqlDataSource1_Updated(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            GridView1.DataBind();
+            
+        }
+
+        protected void SqlDataSource1_Inserted(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            GridView1.DataBind();
+
+        }
+
+        protected void Edit_Click(object sender, EventArgs e)
+        {
+            FormView1.ChangeMode(FormViewMode.Edit);
+        }
+
+        protected void btnNew_Click(object sender, EventArgs e)
+        {
+            FormView1.ChangeMode(FormViewMode.Insert);
         }
     }
 }
