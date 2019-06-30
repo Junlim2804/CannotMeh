@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace CannotMeh
 {
-    public partial class Customer : System.Web.UI.Page
+    public partial class Beautician : System.Web.UI.Page
     {
 
-
-        protected void delete_click(object sender, EventArgs e)
-        {
-            FormView1.DeleteItem();
-        }
 
         protected void refresh_databind(object sender, SqlDataSourceStatusEventArgs e)
         {
@@ -31,6 +26,12 @@ namespace CannotMeh
         {
             FormView1.ChangeMode(FormViewMode.Insert);
         }
+
+        protected void delete_click(object sender, EventArgs e)
+        {
+            FormView1.DeleteItem();
+        }
+
 
     }
 }

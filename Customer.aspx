@@ -23,7 +23,7 @@
                     <asp:CheckBoxField DataField="discount" HeaderText="discount" SortExpression="discount" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer] WHERE ([custID] = @custID)" DeleteCommand="DELETE FROM [Customer] WHERE [custID] = @custID" InsertCommand="INSERT INTO [Customer] ([custID], [fname], [lname], [hpno], [icno], [memberBring], [isMember], [discount]) VALUES (@custID, @fname, @lname, @hpno, @icno, @memberBring, @isMember, @discount)" OnUpdated="SqlDataSource1_Updated" UpdateCommand="UPDATE [Customer] SET [fname] = @fname, [lname] = @lname, [hpno] = @hpno, [icno] = @icno, [memberBring] = @memberBring, [isMember] = @isMember, [discount] = @discount WHERE [custID] = @custID" OnInserted="SqlDataSource1_Inserted">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer] WHERE ([custID] = @custID)" DeleteCommand="DELETE FROM [Customer] WHERE [custID] = @custID" InsertCommand="INSERT INTO [Customer] ([custID], [fname], [lname], [hpno], [icno], [memberBring], [isMember], [discount]) VALUES (@custID, @fname, @lname, @hpno, @icno, @memberBring, @isMember, @discount)" OnUpdated="refresh_databind" UpdateCommand="UPDATE [Customer] SET [fname] = @fname, [lname] = @lname, [hpno] = @hpno, [icno] = @icno, [memberBring] = @memberBring, [isMember] = @isMember, [discount] = @discount WHERE [custID] = @custID" OnInserted="refresh_databind" OnDeleted="refresh_databind">
                 <DeleteParameters>
                     <asp:Parameter Name="custID" Type="String" />
                 </DeleteParameters>
@@ -136,7 +136,7 @@
                     <br />
 
                     <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="Edit_Click" />
-                    <asp:Button ID="Button2" runat="server" Text="Button" />
+                    <asp:Button ID="btn_delete" runat="server" Text="Remove" OnClick="delete_click" />
                     <br />
                     <br />
                 </ItemTemplate>
