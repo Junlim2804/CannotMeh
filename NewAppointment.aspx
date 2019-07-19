@@ -109,7 +109,7 @@
                 
             </asp:DropDownList>
             <br />code:
-            <asp:DropDownList ID="ddlService" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="desc" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlService" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="code" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
                 <asp:ListItem>Select Services</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="Ds_code" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Services]"></asp:SqlDataSource>
