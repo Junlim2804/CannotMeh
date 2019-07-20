@@ -97,6 +97,7 @@ namespace CannotMeh
             cmd.Parameters["@price"].Value = depositTextBox.Text;
             cmd.ExecuteNonQuery();
             conn.Close();
+            Response.Redirect("Appointment.aspx");
 
         }
     }
