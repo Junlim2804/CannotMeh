@@ -80,7 +80,7 @@ namespace CannotMeh
             //insert into Appointment values('1906002','B001','02/07/2019 12:00','F001','80')
            
 
-            String sql = "Insert into Appointment values(@cid,@bid,@appdate,@code,@price)";
+            String sql = "Insert into Appointment values(@cid,@bid,@appdate,@code,@price,0)";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add("@cid", SqlDbType.VarChar);
