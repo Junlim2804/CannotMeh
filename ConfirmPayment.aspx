@@ -108,9 +108,9 @@
         </asp:FormView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="prc_payment" SelectCommandType="StoredProcedure">
             <SelectParameters>
-                <asp:QueryStringParameter DefaultValue="1906002" Name="custid" QueryStringField="custid" Type="String" />
-                <asp:QueryStringParameter DefaultValue="2019-02-07 12:00:00.000" Name="app" QueryStringField="appdate" Type="DateTime" />
-                <asp:QueryStringParameter DefaultValue="B001" Name="beatid" QueryStringField="beatid" Type="String" />
+                <asp:QueryStringParameter DefaultValue="" Name="custid" QueryStringField="custid" Type="String" />
+                <asp:QueryStringParameter DefaultValue="" Name="app" QueryStringField="appdate" Type="DateTime" />
+                <asp:QueryStringParameter DefaultValue="" Name="beatid" QueryStringField="beatid" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
 

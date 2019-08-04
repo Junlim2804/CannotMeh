@@ -22,6 +22,7 @@
             <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="custID,BeatID,appdate" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="btnOpenPopupWindow_Click">
                 <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="custID" HeaderText="custID" ReadOnly="True" SortExpression="custID" />
                     <asp:BoundField DataField="BeatID" HeaderText="BeatID" ReadOnly="True" SortExpression="BeatID" />
                     <asp:BoundField DataField="appdate" HeaderText="appdate" ReadOnly="True" SortExpression="appdate" />
