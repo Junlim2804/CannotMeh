@@ -44,7 +44,7 @@
 </div>
 
 <div id="siteContent" class="w3-container w3-padding-64">
-    <form id="form1" runat="server" class=" w3-center" style="width:100%">
+    <form id="form1" runat="server" style="width:100%">
         <asp:ContentPlaceHolder ID="ctPlaceholder1" runat="server" />
     </form>
 </div>
