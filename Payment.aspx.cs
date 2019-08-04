@@ -22,5 +22,10 @@ namespace CannotMeh
             Response.Redirect("ConfirmPayment.aspx?custid="+custid+"&beatid="+beatid+"&appdate="+appdate);
 
         }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            Label1.Text = Calendar1.SelectedDate.ToString();
+        }
     }
 }

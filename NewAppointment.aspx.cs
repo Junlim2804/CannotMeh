@@ -70,7 +70,7 @@ namespace CannotMeh
             String sql="Select price from services where code='"+ddlService.SelectedValue+"'";
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            txtTotalPayment.Text = cmd.ExecuteScalar().ToString();
+            txtTotalPayment.Text = cmd.ExecuteScalar().ToString()   ;
             conn.Close();
         }
 
