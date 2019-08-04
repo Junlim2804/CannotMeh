@@ -1,14 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Beautician.aspx.cs" Inherits="CannotMeh.Beautician" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Beautician.aspx.cs" Inherits="CannotMeh.Beautician" MasterPageFile="~/Site1.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+<asp:Content ID="content" ContentPlaceHolderID="ctPlaceholder1" runat="server">
+    <div>
             <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="New Beautician" />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="beatID" DataSourceID="Cmds" >
                 <Columns>
@@ -106,6 +99,4 @@
                 </ItemTemplate>
             </asp:FormView>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>

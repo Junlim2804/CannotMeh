@@ -1,13 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Customer.aspx.cs" Inherits="CannotMeh.Customer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Customer.aspx.cs" Inherits="CannotMeh.Customer" MasterPageFile="~/Site1.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="content" ContentPlaceHolderID="ctPlaceholder1" runat="server">
+    <div>
         <div>
             <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="New Customer" />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="custID" DataSourceID="Cmds" >
@@ -142,6 +136,5 @@
                 </ItemTemplate>
             </asp:FormView>
         </div>
-    </form>
-</body>
-</html>
+    </div>
+</asp:Content>
