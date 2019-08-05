@@ -31,6 +31,7 @@
   <a href="Customer.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Customer</a>
   <a href="NewAppointment.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">New Appointment</a>
   <a href="Appointment.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Check Appointment</a>
+  <a href="Payment.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Payment</a>
  </div>
 
   <!-- Navbar on small screens -->

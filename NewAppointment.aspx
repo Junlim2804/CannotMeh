@@ -3,7 +3,7 @@
 
 
 <asp:Content ID="content1" ContentPlaceHolderID="ctPlaceholder1" runat="server">
-    <div class="w3-center">
+    <div style="height: 100%; width:100%; text-align:center; vertical-align:middle;align-content:center">
         <div class="w3-container">
             <div class="w3-row">
                 <div class="w3-col m7">
