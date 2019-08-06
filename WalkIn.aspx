@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WalkIn.aspx.cs" Inherits="CannotMeh.WalkIn"  MasterPageFile="~/Site1.Master"  %>
 <asp:Content ID="content1" ContentPlaceHolderID="ctPlaceholder1" runat="server">
+    <div style="width: 60% ;margin: 0 auto;">
     <div style="height: 100%; width:100%; text-align:center; vertical-align:middle;align-content:center">
         <div class="w3-container">
             <div class="w3-row">
@@ -135,4 +136,5 @@
             </asp:SqlDataSource>
         </div>
     </div>
+        </div>
     </asp:Content>

@@ -18,6 +18,7 @@ namespace CannotMeh
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             code = "";
             datenow= DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             double price = 0;
@@ -32,7 +33,9 @@ namespace CannotMeh
                 Label todaydate = FormView2.FindControl("payDateLabel") as Label;
                 Label lbcustid = FormView2.FindControl("CustIDLabel") as Label;
                 Label lbbeatid = FormView2.FindControl("BeatIDLabel") as Label;
-                //amount.Text = Request.QueryString["price"];
+                Label lbdiscount = FormView2.FindControl("discountLabel") as Label;
+                Label lblori = FormView2.FindControl("oripriceLabel") as Label;
+               
                 price = Convert.ToDouble(Request.QueryString["price"]);
 
                 lbcode.Text = code;
@@ -51,8 +54,11 @@ namespace CannotMeh
                 {
                     discount = Convert.ToInt32(cmd.ExecuteScalar());
                 }
+                lblori.Text = price.ToString();
+           
                 if (discount == 1)
                 {
+                    lbdiscount.Text = (price * 0.1).ToString();
                     price = price * 0.9;
                 }
                 lbamount.Text = price.ToString();
