@@ -106,6 +106,103 @@
                 <br />
             </ItemTemplate>
         </asp:FormView>
+        <asp:FormView ID="FormView2" runat="server" DataKeyNames="payDate" DataSourceID="SqlDataSource2">
+            <EditItemTemplate>
+                payDate:
+                <asp:Label ID="payDateLabel1" runat="server" Text='<%# Eval("payDate") %>' />
+                <br />
+                custID:
+                <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' />
+                <br />
+                amount:
+                <asp:TextBox ID="amountTextBox" runat="server" Text='<%# Bind("amount") %>' />
+                <br />
+                code:
+                <asp:TextBox ID="codeTextBox" runat="server" Text='<%# Bind("code") %>' />
+                <br />
+                beatID:
+                <asp:TextBox ID="beatIDTextBox" runat="server" Text='<%# Bind("beatID") %>' />
+                <br />
+                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </EditItemTemplate>
+            <EmptyDataTemplate>
+                payDate:
+                <asp:Label ID="payDateLabel" runat="server" Text='<%# Eval("payDate") %>' />
+                <br />
+                custID:
+                <asp:Label ID="custIDLabel" runat="server" Text='<%# Bind("custID") %>' />
+                <br />
+                amount:
+                <asp:Label ID="amountLabel" runat="server" Text='<%# Bind("amount") %>' />
+                <br />
+                code:
+                <asp:Label ID="codeLabel" runat="server" Text='<%# Bind("code") %>' />
+                <br />
+                beatID:
+                <asp:Label ID="beatIDLabel" runat="server" Text='<%# Bind("beatID") %>' />
+                <br />
+                <asp:Button ID="Button1" runat="server" OnClick="btnPay_Click" Text="Confirm Payment" />
+                <asp:Button ID="Button2" runat="server" Text="Cancel" />
+            </EmptyDataTemplate>
+            <InsertItemTemplate>
+                payDate:
+                <asp:TextBox ID="payDateTextBox" runat="server" Text='<%# Bind("payDate") %>' />
+                <br />
+                custID:
+                <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' />
+                <br />
+                amount:
+                <asp:TextBox ID="amountTextBox" runat="server" Text='<%# Bind("amount") %>' />
+                <br />
+                code:
+                <asp:TextBox ID="codeTextBox" runat="server" Text='<%# Bind("code") %>' />
+                <br />
+                beatID:
+                <asp:TextBox ID="beatIDTextBox" runat="server" Text='<%# Bind("beatID") %>' />
+                <br />
+                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </InsertItemTemplate>
+            <ItemTemplate>
+                payDate:
+                <asp:Label ID="payDateLabel" runat="server" Text='<%# Eval("payDate") %>' />
+                <br />
+                custID:
+                <asp:Label ID="custIDLabel" runat="server" Text='<%# Bind("custID") %>' />
+                <br />
+                amount:
+                <asp:Label ID="amountLabel" runat="server" Text='<%# Bind("amount") %>' />
+                <br />
+                code:
+                <asp:Label ID="codeLabel" runat="server" Text='<%# Bind("code") %>' />
+                <br />
+                beatID:
+                <asp:Label ID="beatIDLabel" runat="server" Text='<%# Bind("beatID") %>' />
+                <br />
+                &nbsp;&nbsp;<asp:Button ID="Button1" runat="server" Text="Confirm Payment" OnClick="btnPay_Click" />
+                <asp:Button ID="Button2" runat="server" Text="Cancel" />
+            </ItemTemplate>
+        </asp:FormView>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Payment] WHERE [payDate] = @payDate" InsertCommand="INSERT INTO [Payment] ([payDate], [custID], [amount], [code], [beatID]) VALUES (@payDate, @custID, @amount, @code, @beatID)" SelectCommand="SELECT * FROM [Payment]" UpdateCommand="UPDATE [Payment] SET [custID] = @custID, [amount] = @amount, [code] = @code, [beatID] = @beatID WHERE [payDate] = @payDate">
+            <DeleteParameters>
+                <asp:Parameter Name="payDate" Type="DateTime" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="payDate" Type="DateTime" />
+                <asp:Parameter Name="custID" Type="String" />
+                <asp:Parameter Name="amount" Type="Decimal" />
+                <asp:Parameter Name="code" Type="String" />
+                <asp:Parameter Name="beatID" Type="String" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="custID" Type="String" />
+                <asp:Parameter Name="amount" Type="Decimal" />
+                <asp:Parameter Name="code" Type="String" />
+                <asp:Parameter Name="beatID" Type="String" />
+                <asp:Parameter Name="payDate" Type="DateTime" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="prc_payment" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:QueryStringParameter DefaultValue="" Name="custid" QueryStringField="custid" Type="String" />
