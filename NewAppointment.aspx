@@ -13,8 +13,8 @@
                         <asp:Label runat="server" Font-Bold="true">Customer ID: </asp:Label>
                     </td>
                     <td colspan="2">
-                        <asp:DropDownList ID="ddlcustomer" CssClass="w3-input w3-border" AppendDataBoundItems="true" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="icno" DataValueField="custID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                            <asp:ListItem>Please Select Customer IC</asp:ListItem>
+                        <asp:DropDownList ID="ddlcustomer" CssClass="w3-input w3-border" AppendDataBoundItems="true" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="custID" DataValueField="custID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                            <asp:ListItem>Please Select Customer Handphone No</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Label ID="lblCustID" runat="server" Enabled="true" Text='<%# Bind("custID") %>' />
                         <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xlarge" />
@@ -200,7 +200,7 @@
                                     <asp:BoundField DataField="custID" HeaderText="custID" ReadOnly="True" SortExpression="custID" />
                                     <asp:BoundField DataField="fname" HeaderText="fname" SortExpression="fname" />
                                     <asp:BoundField DataField="lname" HeaderText="lname" SortExpression="lname" />
-                                    <asp:BoundField DataField="hpno" HeaderText="hpno" SortExpression="hpno" />
+                                    
                                     <asp:BoundField DataField="icno" HeaderText="icno" SortExpression="icno" />
                                     <asp:BoundField DataField="memberBring" HeaderText="memberBring" SortExpression="memberBring" />
                                     <asp:CheckBoxField DataField="isMember" HeaderText="isMember" SortExpression="isMember" />
@@ -230,7 +230,7 @@
                                     <asp:BoundField DataField="beatID" HeaderText="beatID" ReadOnly="True" SortExpression="beatID" />
                                     <asp:BoundField DataField="fname" HeaderText="fname" SortExpression="fname" />
                                     <asp:BoundField DataField="lname" HeaderText="lname" SortExpression="lname" />
-                                    <asp:BoundField DataField="hpno" HeaderText="hpno" SortExpression="hpno" />
+                                    
                                     <asp:BoundField DataField="icno" HeaderText="icno" SortExpression="icno" />
                                 </Fields>
                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

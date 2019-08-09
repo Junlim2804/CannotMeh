@@ -81,7 +81,7 @@
                                 <asp:BoundField DataField="custID" HeaderText="Customer ID" ReadOnly="True" SortExpression="custID" />
                                 <asp:BoundField DataField="fname" HeaderText="First Name" SortExpression="fname" />
                                 <asp:BoundField DataField="lname" HeaderText="Last Name" SortExpression="lname" />
-                                <asp:BoundField DataField="hpno" HeaderText="Phone No" SortExpression="hpno" />
+                                
                                 <asp:BoundField DataField="icno" HeaderText="IC No" SortExpression="icno" />
                                 <asp:BoundField DataField="memberBring" HeaderText="No. of Referral" SortExpression="memberBring" />
                                 <asp:CheckBoxField DataField="isMember" HeaderText="Member?" SortExpression="isMember" />
@@ -109,7 +109,7 @@
                                 <asp:BoundField DataField="beatID" HeaderText="Beautician ID" ReadOnly="True" SortExpression="beatID" />
                                 <asp:BoundField DataField="fname" HeaderText="First name" SortExpression="fname" />
                                 <asp:BoundField DataField="lname" HeaderText="Last Name" SortExpression="lname" />
-                                <asp:BoundField DataField="hpno" HeaderText="Phone No" SortExpression="hpno" />
+                                
                                 <asp:BoundField DataField="icno" HeaderText="IC No" SortExpression="icno" />
                             </Fields>
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
