@@ -20,14 +20,8 @@
                 Customer:
                 <asp:TextBox ID="CustomerTextBox" runat="server" Text='<%# Bind("Customer") %>' />
                 <br />
-                custID:
-                <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' />
-                <br />
                 Beautician:
                 <asp:TextBox ID="BeauticianTextBox" runat="server" Text='<%# Bind("Beautician") %>' />
-                <br />
-                beatid:
-                <asp:TextBox ID="beatidTextBox" runat="server" Text='<%# Bind("beatid") %>' />
                 <br />
                 Appointment Time:
                 <asp:TextBox ID="Appointment_TimeTextBox" runat="server" Text='<%# Bind("[Appointment Time]") %>' />
@@ -35,20 +29,14 @@
                 Current Time:
                 <asp:TextBox ID="Current_TimeTextBox" runat="server" Text='<%# Bind("[Current Time]") %>' />
                 <br />
-                Service Name:
-                <asp:TextBox ID="Service_NameTextBox" runat="server" Text='<%# Bind("[Service Name]") %>' />
-                <br />
-                code:
-                <asp:TextBox ID="codeTextBox" runat="server" Text='<%# Bind("code") %>' />
+                sName:
+                <asp:TextBox ID="sNameTextBox" runat="server" Text='<%# Bind("sName") %>' />
                 <br />
                 Service Price:
                 <asp:TextBox ID="Service_PriceTextBox" runat="server" Text='<%# Bind("[Service Price]") %>' />
                 <br />
                 deposit:
                 <asp:TextBox ID="depositTextBox" runat="server" Text='<%# Bind("deposit") %>' />
-                <br />
-                discount:
-                <asp:TextBox ID="discountTextBox" runat="server" Text='<%# Bind("discount") %>' />
                 <br />
                 Payment:
                 <asp:TextBox ID="PaymentTextBox" runat="server" Text='<%# Bind("Payment") %>' />
@@ -60,14 +48,8 @@
                 Customer:
                 <asp:TextBox ID="CustomerTextBox" runat="server" Text='<%# Bind("Customer") %>' />
                 <br />
-                custID:
-                <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' />
-                <br />
                 Beautician:
                 <asp:TextBox ID="BeauticianTextBox" runat="server" Text='<%# Bind("Beautician") %>' />
-                <br />
-                beatid:
-                <asp:TextBox ID="beatidTextBox" runat="server" Text='<%# Bind("beatid") %>' />
                 <br />
                 Appointment Time:
                 <asp:TextBox ID="Appointment_TimeTextBox" runat="server" Text='<%# Bind("[Appointment Time]") %>' />
@@ -75,20 +57,14 @@
                 Current Time:
                 <asp:TextBox ID="Current_TimeTextBox" runat="server" Text='<%# Bind("[Current Time]") %>' />
                 <br />
-                Service Name:
-                <asp:TextBox ID="Service_NameTextBox" runat="server" Text='<%# Bind("[Service Name]") %>' />
-                <br />
-                code:
-                <asp:TextBox ID="codeTextBox" runat="server" Text='<%# Bind("code") %>' />
+                sName:
+                <asp:TextBox ID="sNameTextBox" runat="server" Text='<%# Bind("sName") %>' />
                 <br />
                 Service Price:
                 <asp:TextBox ID="Service_PriceTextBox" runat="server" Text='<%# Bind("[Service Price]") %>' />
                 <br />
                 deposit:
                 <asp:TextBox ID="depositTextBox" runat="server" Text='<%# Bind("deposit") %>' />
-                <br />
-                discount:
-                <asp:TextBox ID="discountTextBox" runat="server" Text='<%# Bind("discount") %>' />
                 <br />
                 Payment:
                 <asp:TextBox ID="PaymentTextBox" runat="server" Text='<%# Bind("Payment") %>' />
@@ -101,16 +77,9 @@
                 <asp:Label ID="CustomerLabel" runat="server" Text='<%# Bind("Customer") %>' />
                 
                 <br />
-                custID:
-                <asp:Label ID="custIDLabel" runat="server" Text='<%# Bind("custID") %>' />
-                
-                <br />
                 Beautician:
                 <asp:Label ID="BeauticianLabel" runat="server" Text='<%# Bind("Beautician") %>' />
                 
-                <br />
-                beatid:
-                <asp:Label ID="beatidLabel" runat="server" Text='<%# Bind("beatid") %>' />
                 <br />
                 Appointment Time:
                 <asp:Label ID="Appointment_TimeLabel" runat="server" Text='<%# Bind("[Appointment Time]") %>' />
@@ -118,11 +87,9 @@
                 Current Time:
                 <asp:Label ID="Current_TimeLabel" runat="server" Text='<%# Bind("[Current Time]") %>' />
                 <br />
-
-                Service Name:
-                <asp:Label ID="Service_NameLabel" runat="server" Text='<%# Bind("[Service Name]") %>' />
-                <br />
-                code: <asp:Label ID="codeLabel" runat="server" Text='<%# Bind("code") %>' />
+                sName:
+                in<asp:Label ID="sNameLabel" runat="server" Text='<%# Bind("[Service Name]") %>' />
+                <asp:HiddenField ID="hfCode" runat="server" Value='<%# Eval("code") %>' />
                 <br />
                 Service Price:
                 <asp:Label ID="Service_PriceLabel" runat="server" Text='<%# Bind("[Service Price]") %>' />
@@ -130,12 +97,12 @@
                 deposit:
                 <asp:Label ID="depositLabel" runat="server" Text='<%# Bind("deposit") %>' />
                 <br />
-                discount:
-                <asp:Label ID="discountLabel" runat="server" Text='<%# Bind("discount") %>' />
-                <br />
 
                 Payment:
                 <asp:Label ID="PaymentLabel" runat="server" Text='<%# Bind("Payment") %>' />
+                <br />
+                <asp:Button ID="btnPay" runat="server" OnClick="btnPay_Click" Text="Confirm Payment" />
+                <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
                 <br />
             </ItemTemplate>
         </asp:FormView>
