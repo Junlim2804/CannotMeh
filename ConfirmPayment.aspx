@@ -3,6 +3,10 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head runat="server">
     <title></title>
     <style type="text/css">
@@ -12,126 +16,93 @@
     </style>
 </head>
 <body>
-    <h1>Confirm Payment</h1>    
     <form id="form1" runat="server">
 
-        <asp:FormView ID="FormView1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource1">
-            <EditItemTemplate>
-                Customer:
-                <asp:TextBox ID="CustomerTextBox" runat="server" Text='<%# Bind("Customer") %>' />
-                <br />
-                Beautician:
-                <asp:TextBox ID="BeauticianTextBox" runat="server" Text='<%# Bind("Beautician") %>' />
-                <br />
-                Appointment Time:
-                <asp:TextBox ID="Appointment_TimeTextBox" runat="server" Text='<%# Bind("[Appointment Time]") %>' />
-                <br />
-                Current Time:
-                <asp:TextBox ID="Current_TimeTextBox" runat="server" Text='<%# Bind("[Current Time]") %>' />
-                <br />
-                sName:
-                <asp:TextBox ID="sNameTextBox" runat="server" Text='<%# Bind("sName") %>' />
-                <br />
-                Service Price:
-                <asp:TextBox ID="Service_PriceTextBox" runat="server" Text='<%# Bind("[Service Price]") %>' />
-                <br />
-                deposit:
-                <asp:TextBox ID="depositTextBox" runat="server" Text='<%# Bind("deposit") %>' />
-                <br />
-                Payment:
-                <asp:TextBox ID="PaymentTextBox" runat="server" Text='<%# Bind("Payment") %>' />
-                <br />
-                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-            </EditItemTemplate>
-            <InsertItemTemplate>
-                Customer:
-                <asp:TextBox ID="CustomerTextBox" runat="server" Text='<%# Bind("Customer") %>' />
-                <br />
-                Beautician:
-                <asp:TextBox ID="BeauticianTextBox" runat="server" Text='<%# Bind("Beautician") %>' />
-                <br />
-                Appointment Time:
-                <asp:TextBox ID="Appointment_TimeTextBox" runat="server" Text='<%# Bind("[Appointment Time]") %>' />
-                <br />
-                Current Time:
-                <asp:TextBox ID="Current_TimeTextBox" runat="server" Text='<%# Bind("[Current Time]") %>' />
-                <br />
-                sName:
-                <asp:TextBox ID="sNameTextBox" runat="server" Text='<%# Bind("sName") %>' />
-                <br />
-                Service Price:
-                <asp:TextBox ID="Service_PriceTextBox" runat="server" Text='<%# Bind("[Service Price]") %>' />
-                <br />
-                deposit:
-                <asp:TextBox ID="depositTextBox" runat="server" Text='<%# Bind("deposit") %>' />
-                <br />
-                Payment:
-                <asp:TextBox ID="PaymentTextBox" runat="server" Text='<%# Bind("Payment") %>' />
-                <br />
-                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-            </InsertItemTemplate>
+        <asp:FormView ID="FormView1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource1" HorizontalAlign="Center" Font-Size="Large">
             <ItemTemplate>
-                Customer:
-                <asp:Label ID="CustomerLabel" runat="server" Text='<%# Bind("Customer") %>' />
-                
-                <br />
-                Beautician:
-                <asp:Label ID="BeauticianLabel" runat="server" Text='<%# Bind("Beautician") %>' />
-                
-                <br />
-                Appointment Time:
-                <asp:Label ID="Appointment_TimeLabel" runat="server" Text='<%# Bind("[Appointment Time]") %>' />
-                <br />
-                Current Time:
-                <asp:Label ID="Current_TimeLabel" runat="server" Text='<%# Bind("[Current Time]") %>' />
-                <br />
-                sName:
-                in<asp:Label ID="sNameLabel" runat="server" Text='<%# Bind("[Service Name]") %>' />
-                <asp:HiddenField ID="hfCode" runat="server" Value='<%# Eval("code") %>' />
-                <br />
-                Service Price:
-                <asp:Label ID="Service_PriceLabel" runat="server" Text='<%# Bind("[Service Price]") %>' />
-                <br />
-                deposit:
-                <asp:Label ID="depositLabel" runat="server" Text='<%# Bind("deposit") %>' />
-                <br />
-
-                Payment:
-                <asp:Label ID="PaymentLabel" runat="server" Text='<%# Bind("Payment") %>' />
-                <br />
-                <asp:Button ID="btnPay" runat="server" OnClick="btnPay_Click" Text="Confirm Payment" />
-                <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
-                <br />
+                <table style="width: 600px; border: solid">
+                    <tr>
+                        <td colspan="2" style="font-size: 40px; text-align:center; font-weight:bold">
+                            Confirm Payment
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Customer : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="CustomerLabel" runat="server" Text='<%# Bind("Customer") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Beautician : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="BeauticianLabel" runat="server" Text='<%# Bind("Beautician") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Appointment Time : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="Appointment_TimeLabel" runat="server" Text='<%# Bind("[Appointment Time]") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Current Time : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="Current_TimeLabel" runat="server" Text='<%# Bind("[Current Time]") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Service Name : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="sNameLabel" runat="server" Text='<%# Bind("[Service Name]") %>' />
+                            <asp:HiddenField ID="hfCode" runat="server" Value='<%# Eval("code") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Service Price : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="Service_PriceLabel" runat="server" Text='<%# Bind("[Service Price]") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Deposit : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="depositLabel" runat="server" Text='<%# Bind("deposit") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Payment : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="PaymentLabel" runat="server" Text='<%# Bind("Payment") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center">
+                            <asp:Button ID="btnPay" runat="server" OnClick="btnPay_Click" Text="Confirm Payment" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px" />
+                            &nbsp;
+                            <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px"/>
+                        </td>
+                    </tr>
+                </table>
             </ItemTemplate>
         </asp:FormView>
-        <asp:FormView ID="FormView2" runat="server" DataKeyNames="payDate" DataSourceID="SqlDataSource2">
-            <EditItemTemplate>
-                Payment Date:
-                <asp:Label ID="payDateLabel1" runat="server" Text='<%# Eval("payDate") %>' />
-                <br />
-                Customer ID:
-                <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' />
-                <br />
-                Original Price:
-                <asp:Label ID="lblori" runat="server"  />
-                <br />
-                Discount:
-                <asp:Label ID="lbldiscount" runat="server" />
-                <br />
-                Amount:
-                <asp:TextBox ID="amountTextBox" runat="server" Text='<%# Bind("amount") %>' />
-                <br />
-                Service code:
-                <asp:TextBox ID="codeTextBox" runat="server" Text='<%# Bind("code") %>' />
-                <br />
-                Beautician ID:
-                <asp:TextBox ID="beatIDTextBox" runat="server" Text='<%# Bind("beatID") %>' />
-                <br />
-                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-            </EditItemTemplate>
+
+        <asp:FormView ID="FormView2" runat="server" DataKeyNames="payDate" DataSourceID="SqlDataSource2" HorizontalAlign="center" Font-Size="Large">
             <EmptyDataTemplate>
                 Payment Date:
                 <asp:Label ID="payDateLabel" runat="server" Text='<%# Eval("payDate") %>' />
@@ -157,49 +128,77 @@
                 <asp:Button ID="Button1" runat="server" OnClick="btnPay_Click" Text="Confirm Payment" />
                 <asp:Button ID="Button2" runat="server" Text="Cancel" />
             </EmptyDataTemplate>
-            <InsertItemTemplate>
-                payDate:
-                <asp:TextBox ID="payDateTextBox" runat="server" Text='<%# Bind("payDate") %>' />
-                <br />
-                custID:
-                <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' />
-                <br />
-                amount:
-                <asp:TextBox ID="amountTextBox" runat="server" Text='<%# Bind("amount") %>' />
-                <br />
-                code:
-                <asp:TextBox ID="codeTextBox" runat="server" Text='<%# Bind("code") %>' />
-                <br />
-                beatID:
-                <asp:TextBox ID="beatIDTextBox" runat="server" Text='<%# Bind("beatID") %>' />
-                <br />
-                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-            </InsertItemTemplate>
             <ItemTemplate>
-                payDate:
-                <asp:Label ID="payDateLabel" runat="server" Text='<%# Eval("payDate") %>' />
-                <br />
-                Customer ID:
-                <asp:Label ID="custIDLabel" runat="server" Text='<%# Bind("custID") %>' />
-                <br />
-                Original Price:
-                <asp:Label ID="oripriceLabel" runat="server" Text='0' />
-                <br />
-                Discount:
-                <asp:Label ID="discountLabel" runat="server" Text='0' />                
-                <br />
-                Total Amount:
-                <asp:Label ID="amountLabel" runat="server" Text='<%# Bind("amount") %>' />
-                <br />
-                code:
-                <asp:Label ID="codeLabel" runat="server" Text='<%# Bind("code") %>' />
-                <br />
-                beatID:
-                <asp:Label ID="beatIDLabel" runat="server" Text='<%# Bind("beatID") %>' />
-                <br />
-                &nbsp;&nbsp;<asp:Button ID="Button1" runat="server" Text="Confirm Payment" OnClick="btnPay_Click" />
-                <asp:Button ID="Button2" runat="server" Text="Cancel" />
+                <table style="width: 500px; border: solid">
+                    <tr>
+                        <td colspan="2" style="font-size: 40px; text-align:center">
+                            <asp:Label runat="server" Font-Bold="true">Confirm Payment</asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">
+                            <asp:Label runat="server" Font-Bold="true">Payment Date : </asp:Label>
+                        </td>
+                        <td style="text-align:center">
+                            <asp:Label ID="payDateLabel" runat="server" Text='<%# Eval("payDate") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">
+                            <asp:Label runat="server" Font-Bold="true">Customer HP : </asp:Label>
+                        </td>
+                        <td style="text-align:center">
+                            <asp:Label ID="custIDLabel" runat="server" Text='<%# Bind("custID") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">
+                            <asp:Label runat="server" Font-Bold="true">Original Price : </asp:Label>
+                        </td>
+                        <td style="text-align:center">
+                            <asp:Label ID="oripriceLabel" runat="server" Text='0' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">
+                            <asp:Label runat="server" Font-Bold="true">Discount : </asp:Label>
+                        </td>
+                        <td style="text-align:center">
+                            <asp:Label ID="discountLabel" runat="server" Text='0' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">
+                            <asp:Label runat="server" Font-Bold="true">Total Amount : </asp:Label>
+                        </td>
+                        <td style="text-align:center">
+                            <asp:Label ID="amountLabel" runat="server" Text='<%# Bind("amount") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">
+                            <asp:Label runat="server" Font-Bold="true">Service Code : </asp:Label>
+                        </td>
+                        <td style="text-align:center">
+                            <asp:Label ID="codeLabel" runat="server" Text='<%# Bind("code") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">
+                            <asp:Label runat="server" Font-Bold="true">Beautician ID : </asp:Label>
+                        </td>
+                        <td style="text-align:center">
+                            <asp:Label ID="beatIDLabel" runat="server" Text='<%# Bind("beatID") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"  style="vertical-align: middle; text-align:center">
+                            <asp:Button ID="Button1" runat="server" Text="Confirm Payment" OnClick="btnPay_Click" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px"/>
+                            &nbsp;
+                            <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px" />
+                        </td>
+                    </tr>
+                </table>
             </ItemTemplate>
         </asp:FormView>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Payment] WHERE [payDate] = @payDate" InsertCommand="INSERT INTO [Payment] ([payDate], [custID], [amount], [code], [beatID]) VALUES (@payDate, @custID, @amount, @code, @beatID)" SelectCommand="SELECT * FROM [Payment]" UpdateCommand="UPDATE [Payment] SET [custID] = @custID, [amount] = @amount, [code] = @code, [beatID] = @beatID WHERE [payDate] = @payDate">

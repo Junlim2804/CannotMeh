@@ -15,6 +15,12 @@
                     <asp:BoundField DataField="deposit" HeaderText="Deposited" SortExpression="deposit" />
                     <asp:CheckBoxField DataField="complete" HeaderText="Complete?" SortExpression="complete" />
                 </Columns>
+                <EmptyDataTemplate>
+                    <div style="text-align:center">
+                        <asp:Label runat="server" Font-Bold="true">There is currently no available appointment for payment</asp:Label>
+                    </div>
+                    
+                </EmptyDataTemplate>
                 <FooterStyle BackColor="White" ForeColor="#333333" />
                 <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />

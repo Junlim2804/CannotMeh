@@ -10,9 +10,9 @@
             <table style="width: 550px; text-align: center; border: solid">
                 <tr>
                     <td style="padding:8px">
-                        <asp:Label runat="server" Font-Bold="true">Customer ID: </asp:Label>
+                        <asp:Label runat="server" Font-Bold="true">Customer HP: </asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" style="padding:8px">
                         <asp:DropDownList ID="ddlcustomer" CssClass="w3-input w3-border" AppendDataBoundItems="true" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="custID" DataValueField="custID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                             <asp:ListItem>Please Select Customer Handphone No</asp:ListItem>
                         </asp:DropDownList>

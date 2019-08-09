@@ -2,74 +2,72 @@
 
 <asp:Content ID="content1" ContentPlaceHolderID="ctPlaceholder1" runat="server">
 
-    <div>
+    <div class="w3-row" style="width:100%">
+        <div class="w3-col m6">
         <table class="w3-center" style="border:solid;width:600px">
             <tr>
-                <td>
-                    <asp:Label runat="server" Font-Bold="true">Customer ID: </asp:Label>
+                <td style="padding:8px">
+                    <asp:Label runat="server" Font-Bold="true">Customer HP: </asp:Label>
                 </td>
-                <td>
+                <td style="padding:8px">
                     <asp:DropDownList ID="ddlcustomer" CssClass="w3-input w3-border" AppendDataBoundItems="True" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="custID" DataValueField="custID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                        <asp:ListItem>Please Select Customer IC</asp:ListItem>
+                        <asp:ListItem>Please Select Customer HP No</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="lblCustID" runat="server" Enabled="true" Text='<%# Bind("custID") %>' />
-                    &nbsp
-                    <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" Visible="False" CssClass="w3-button w3-teal" />
+                    <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xxlarge" />
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="padding:8px">
                     <asp:Label runat="server" Font-Bold="true">Beautician ID: </asp:Label>
                 </td>
-                <td>
+                <td style="padding:8px">
                     <asp:DropDownList ID="ddlBeautician" CssClass="w3-input w3-border" AppendDataBoundItems="True" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="fname" DataValueField="beatID" OnSelectedIndexChanged="DdlBeautician_SelectedIndexChanged">
                         <asp:ListItem>Please Select Beautician ID</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="lblBeatID" runat="server" Text='<%# Bind("BeatID") %>' />
-                    &nbsp
-                    <asp:Button ID="btnChange1" runat="server" Text="Change" OnClick="btnChange1_Click" Visible="False" CssClass="w3-button w3-teal" />
+                    <asp:Button ID="btnChange1" runat="server" Text="Change" OnClick="btnChange1_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xxlarge" />
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="padding:8px">
                     <asp:Label runat="server" Font-Bold="true">Service Date Time: </asp:Label>
                 </td>
-                <td>
+                <td style="padding:8px">
                     <asp:Label ID="lblappdate" runat="server" Text='<%# Bind("appdate") %>' />
                 </td>
             </tr>
             <tr>
-                <td>
-                    <asp:Label runat="server" Font-Bold="true">Service Code: </asp:Label>
+                <td style="padding:8px">
+                    <asp:Label runat="server" Font-Bold="true">Service Name: </asp:Label>
                 </td>
-                <td>
-                    <asp:DropDownList ID="ddlService" CssClass="w3-input w3-border" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="code" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
+                <td style="padding:8px">
+                    <asp:DropDownList ID="ddlService" CssClass="w3-input w3-border" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="sName" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
                         <asp:ListItem>Select Services</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:SqlDataSource ID="Ds_code" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Services]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="Ds_code" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [code], [sName], [type], [price] FROM [Services]"></asp:SqlDataSource>
                     <asp:Label ID="lblCode" runat="server" Text='<%# Bind("code") %>' Visible="False" />
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="padding:8px">
                     <asp:Label runat="server" Font-Bold="true">Total Amount: </asp:Label>
                 </td>
-                <td>
+                <td style="padding:8px">
                     <asp:TextBox ID="txtTotalPayment" CssClass="w3-input w3-border" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="2" style="padding:8px">
                     <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" OnClick="InsertButton_Click" />
                                 &nbsp;&nbsp;
                     <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                     </td>
                 </tr>
             </table>
-
         </div>
-        <div class="w3-col m5">
-            <table style="width: 600px">
+        <div class="w3-col m6">
+            <table>
                 <tr>
                     <td>
                         <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="600px" AutoGenerateRows="False" CellPadding="4" DataKeyNames="custID" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" FieldHeaderStyle-Width="150px">
@@ -122,6 +120,8 @@
             </table>
         </div>
     </div>
+
+    
 
 
 

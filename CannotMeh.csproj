@@ -108,6 +108,9 @@
     <Content Include="About.aspx" />
     <Content Include="Appointment.aspx" />
     <Content Include="App_Data\cmDB.mdf" />
+    <Content Include="App_Data\cmDB_log.ldf">
+      <DependentUpon>cmDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Beautician.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
