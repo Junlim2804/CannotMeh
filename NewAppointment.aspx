@@ -12,13 +12,11 @@
                     <td>
                         <asp:Label runat="server" Font-Bold="true">Customer ID: </asp:Label>
                     </td>
-                    <td>
-                        <asp:DropDownList ID="ddlcustomer" AppendDataBoundItems="true" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="icno" DataValueField="custID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                    <td colspan="2">
+                        <asp:DropDownList ID="ddlcustomer" CssClass="w3-input w3-border" AppendDataBoundItems="true" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="icno" DataValueField="custID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                             <asp:ListItem>Please Select Customer IC</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Label ID="lblCustID" runat="server" Enabled="true" Text='<%# Bind("custID") %>' />
-                    </td>
-                    <td>
                         <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xlarge" />
                     </td>
                 </tr>
@@ -26,13 +24,11 @@
                     <td>
                         <label>Beautician ID: </label>
                     </td>
-                    <td>
-                        <asp:DropDownList ID="ddlBeautician" AppendDataBoundItems="True" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="fname" DataValueField="beatID" OnSelectedIndexChanged="DdlBeautician_SelectedIndexChanged">
+                    <td colspan="2">
+                        <asp:DropDownList ID="ddlBeautician" CssClass="w3-input w3-border" AppendDataBoundItems="True" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="fname" DataValueField="beatID" OnSelectedIndexChanged="DdlBeautician_SelectedIndexChanged">
                             <asp:ListItem>Please Select Beautician ID</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Label ID="lblBeatID" runat="server" Text='<%# Bind("BeatID") %>' />
-                    </td>
-                    <td>
                         <asp:Button ID="btnChange1" runat="server" Text="Change" OnClick="btnChange1_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xlarge" />
                     </td>
                 </tr>
@@ -148,7 +144,7 @@
                         <label>Service Code: </label>
                     </td>
                     <td colspan="2">
-                        <asp:DropDownList ID="ddlService" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="code" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlService" runat="server" CssClass="w3-input w3-border" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="code" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
                             <asp:ListItem>Select Services</asp:ListItem>
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="Ds_code" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Services]"></asp:SqlDataSource>
@@ -160,7 +156,7 @@
                         <label>Total Amount: </label>
                     </td>
                     <td colspan="2">
-                        <asp:TextBox ID="txtTotalPayment" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtTotalPayment" runat="server" CssClass="w3-input w3-border"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -168,7 +164,7 @@
                         <label>Deposit: </label>
                     </td>
                     <td colspan="2">
-                        <asp:TextBox ID="depositTextBox" runat="server" Text='<%# Bind("deposit") %>' />
+                        <asp:TextBox ID="depositTextBox" runat="server" CssClass="w3-input w3-border" Text='<%# Bind("deposit") %>' />
                     </td>
                 </tr>
                 <tr>

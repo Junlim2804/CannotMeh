@@ -3,7 +3,7 @@
 <asp:Content ID="content" ContentPlaceHolderID="ctPlaceholder1" runat="server">
 
     <div>
-        <table style="width:100%">
+        <table style="width:100%;">
             <tr>
                 <td>
                     <label>Date: </label>

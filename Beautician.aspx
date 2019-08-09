@@ -69,10 +69,19 @@
 
         <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Beautician]"></asp:SqlDataSource>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="beatID" DataSourceID="SqlDataSource1">
+            <asp:FormView ID="FormView1" runat="server" DataKeyNames="beatID" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
                 <EditItemTemplate>
-                    beatID:
-                    <asp:Label ID="beatIDLabel1" runat="server" Text='<%# Eval("beatID") %>' />
+                    <asp:Table runat="server">
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label runat="server">Beautician ID: </asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:Label ID="beatIDLabel1" runat="server" Text='<%# Eval("beatID") %>' />
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
+
                     <br />
                     fname:
                     <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' />
