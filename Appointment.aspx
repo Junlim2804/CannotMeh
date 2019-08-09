@@ -1,16 +1,33 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Appointment.aspx.cs" Inherits="CannotMeh.Appointmnet" MasterPageFile="~/Site1.Master" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="ctPlaceholder1" runat="server">
+
     <div>
-        Date:
-        <asp:Calendar ID="Calendar1" SelectedDate="<%# DateTime.Today %>" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px"  Width="350px" >
-            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-            <OtherMonthDayStyle ForeColor="#999999" />
-            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-            <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-            <TodayDayStyle BackColor="#CCCCCC" />
-        </asp:Calendar>
+        <table style="width:100%;">
+            <tr>
+                <td>
+                    <label>Date: </label>
+                </td>
+                
+            </tr>
+            <tr>
+                <td style="vertical-align:middle; text-align:center">
+                    <div style="width:350px">
+                        <asp:Calendar ID="Calendar1" SelectedDate="<%# DateTime.Today %>" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" Width="350px" >
+                        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                        <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                        <TodayDayStyle BackColor="#CCCCCC" />
+                    </asp:Calendar>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
         <br />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="custID,BeatID,appdate" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
@@ -23,7 +40,7 @@
                 <asp:CheckBoxField DataField="complete" HeaderText="complete" SortExpression="complete" />
             </Columns>
         </asp:GridView>
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="custID,BeatID,appdate" OnItemUpdating="FormView1_ItemUpdating" OnItemCommand="FormView1_ItemCommand" OnModeChanging="EmployeeFormView_ModeChanging" OnPageIndexChanging="FormView1_PageIndexChanging" >
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="custID,BeatID,appdate" OnItemUpdating="FormView1_ItemUpdating" OnItemCommand="FormView1_ItemCommand" OnModeChanging="EmployeeFormView_ModeChanging" OnPageIndexChanging="FormView1_PageIndexChanging">
             <EditItemTemplate>
                 custID:
                 <asp:Label ID="custIDLabel1" runat="server" Text='<%# Eval("custID") %>' />
@@ -32,7 +49,7 @@
                 <asp:Label ID="BeatIDLabel1" runat="server" Text='<%# Eval("BeatID") %>' />
                 <br />
                 appdate:
-                <asp:Textbox ID="appdateTb1" runat="server" Text='<%# Eval("appdate") %>' />
+                <asp:TextBox ID="appdateTb1" runat="server" Text='<%# Eval("appdate") %>' />
                 <br />
                 code:
                 <asp:TextBox ID="codeTextBox" runat="server" Text='<%# Bind("code") %>' Enabled="False" />
