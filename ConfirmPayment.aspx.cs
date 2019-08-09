@@ -106,7 +106,7 @@ namespace CannotMeh
                 cmd.ExecuteNonQuery();
             }
             conn.Close();
-            Response.Redirect("Payment.aspx");  
+            Response.Redirect("Walkin.aspx");  
 
 
         }

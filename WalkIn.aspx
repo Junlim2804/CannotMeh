@@ -4,7 +4,7 @@
 
     <div class="w3-row">
         <div class="w3-col m5">
-            <table style="border: solid; width: 600px; vertical-align:middle; text-align:center">
+            <table style="border: solid; width: 620px; vertical-align:middle; text-align:center">
                 <tr>
                     <td style="padding: 8px">
                         <asp:Label runat="server" Font-Bold="true">Customer ID: </asp:Label>
@@ -14,7 +14,6 @@
                             <asp:ListItem>Please Select Customer IC</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Label ID="lblCustID" runat="server" Enabled="true" Text='<%# Bind("custID") %>' />
-                        &nbsp
                     <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xxlarge" />
                     </td>
                 </tr>
@@ -27,7 +26,6 @@
                             <asp:ListItem>Please Select Beautician ID</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Label ID="lblBeatID" runat="server" Text='<%# Bind("BeatID") %>' />
-                        &nbsp
                     <asp:Button ID="btnChange1" runat="server" Text="Change" OnClick="btnChange1_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xxlarge" />
                     </td>
                 </tr>
