@@ -16,9 +16,9 @@ namespace CannotMeh
 
         protected void btnOpenPopupWindow_Click(object sender, EventArgs e)
         {
-            String custid=GridView1.SelectedDataKey.Values[0].ToString();
-            String beatid = GridView1.SelectedDataKey.Values[1].ToString();
-            String appdate = GridView1.SelectedDataKey.Values[2].ToString();
+            String custid=GridView1.SelectedRow.Cells[1].Text;
+            String beatid = GridView1.SelectedRow.Cells[3].Text;
+            String appdate = GridView1.SelectedRow.Cells[5].Text;
             Response.Redirect("ConfirmPayment.aspx?custid="+custid+"&beatid="+beatid+"&appdate="+appdate);
 
         }
