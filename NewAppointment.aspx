@@ -7,12 +7,12 @@
     <div class="w3-container" style="vertical-align:middle; width:1500px">
         <div class="w3-row">
         <div class="w3-col m5">
-            <table style="width: 500px; text-align: center; border: solid">
+            <table style="width: 550px; text-align: center; border: solid">
                 <tr>
-                    <td>
+                    <td style="padding:8px">
                         <asp:Label runat="server" Font-Bold="true">Customer ID: </asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" style="padding:8px">
                         <asp:DropDownList ID="ddlcustomer" CssClass="w3-input w3-border" AppendDataBoundItems="true" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="icno" DataValueField="custID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                             <asp:ListItem>Please Select Customer IC</asp:ListItem>
                         </asp:DropDownList>
@@ -21,10 +21,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label>Beautician ID: </label>
+                    <td style="padding:8px">
+                        <asp:Label runat="server" Font-Bold="true">Beautician ID: </asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" style="padding:8px"> 
                         <asp:DropDownList ID="ddlBeautician" CssClass="w3-input w3-border" AppendDataBoundItems="True" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="fname" DataValueField="beatID" OnSelectedIndexChanged="DdlBeautician_SelectedIndexChanged">
                             <asp:ListItem>Please Select Beautician ID</asp:ListItem>
                         </asp:DropDownList>
@@ -33,18 +33,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label>Application Date: </label>
+                    <td style="padding:8px">
+                        <asp:Label runat="server" Font-Bold="true">Application Date: </asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" style="padding:8px">
                         <asp:Label ID="lblappdate" runat="server" Text='<%# Bind("appdate") %>' />
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label>Select Date: </label>
+                    <td style="padding:8px">
+                        <asp:Label runat="server" Font-Bold="true">Select Date: </asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" style="padding:8px">
                         <div style="margin: 0 auto; width: 200px">
                             <asp:Calendar ID="calAppDate" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" OnSelectionChanged="ddlTime_SelectedIndexChanged" Width="200px">
                                 <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
@@ -60,10 +60,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label>Select Time: </label>
+                    <td style="padding:8px">
+                        <asp:Label runat="server" Font-Bold="true">Select Time: </asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" style="padding:8px">
                         <asp:DropDownList ID="ddlHour" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTime_SelectedIndexChanged">
                             <asp:ListItem>10</asp:ListItem>
                             <asp:ListItem>11</asp:ListItem>
@@ -140,38 +140,48 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label>Service Code: </label>
+                    <td style="padding:8px">
+                        <asp:Label runat="server" Font-Bold="true">Service Name: </asp:Label>
                     </td>
-                    <td colspan="2">
-                        <asp:DropDownList ID="ddlService" runat="server" CssClass="w3-input w3-border" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="code" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
+                    <td colspan="2" style="padding:8px">
+                        <asp:DropDownList ID="ddlService" runat="server" CssClass="w3-input w3-border" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="sName" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
                             <asp:ListItem>Select Services</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="Ds_code" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Services]"></asp:SqlDataSource>
-                        <asp:Label ID="lblCode" runat="server" Text='<%# Bind("code") %>' Visible="False" />
+                        <asp:SqlDataSource ID="Ds_code" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [code], [sName], [type], [price] FROM [Services]"></asp:SqlDataSource>
+                        <asp:Label ID="lblCode" runat="server" Text='<%# Bind("sName") %>' Visible="False" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label>Total Amount: </label>
+                    <td style="padding:8px">
+                        <asp:Label runat="server" Font-Bold="true">Total Amount: </asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" style="padding:8px">
                         <asp:TextBox ID="txtTotalPayment" runat="server" CssClass="w3-input w3-border"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <label>Deposit: </label>
+                    <td style="padding:8px">
+                        <asp:Label runat="server" Font-Bold="true">Deposit: </asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" style="padding:8px">
                         <asp:TextBox ID="depositTextBox" runat="server" CssClass="w3-input w3-border" Text='<%# Bind("deposit") %>' />
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3">
-                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" OnClick="InsertButton_Click" />
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding:8px">
+                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" OnClick="InsertButton_Click" CssClass="w3-button w3-teal w3-round-xxlarge" Width="100px" />
                         &nbsp;&nbsp;
-                    <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                    <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" Width="100px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
                     </td>
                 </tr>
             </table>
@@ -185,15 +195,16 @@
                                 <AlternatingRowStyle BackColor="White" />
                                 <CommandRowStyle BackColor="#FFFFC0" Font-Bold="True" />
                                 <FieldHeaderStyle BackColor="#FFFF99" Font-Bold="True" />
+                                <HeaderTemplate>Customer Details</HeaderTemplate>
                                 <Fields>
-                                    <asp:BoundField DataField="custID" HeaderText="custID" ReadOnly="True" SortExpression="custID" />
-                                    <asp:BoundField DataField="fname" HeaderText="fname" SortExpression="fname" />
-                                    <asp:BoundField DataField="lname" HeaderText="lname" SortExpression="lname" />
-                                    <asp:BoundField DataField="hpno" HeaderText="hpno" SortExpression="hpno" />
-                                    <asp:BoundField DataField="icno" HeaderText="icno" SortExpression="icno" />
-                                    <asp:BoundField DataField="memberBring" HeaderText="memberBring" SortExpression="memberBring" />
-                                    <asp:CheckBoxField DataField="isMember" HeaderText="isMember" SortExpression="isMember" />
-                                    <asp:CheckBoxField DataField="discount" HeaderText="discount" SortExpression="discount" />
+                                    <asp:BoundField DataField="custID" HeaderText="Customer ID" ReadOnly="True" SortExpression="custID" />
+                                    <asp:BoundField DataField="fname" HeaderText="First Name" SortExpression="fname" />
+                                    <asp:BoundField DataField="lname" HeaderText="Last Name" SortExpression="lname" />
+                                    <asp:BoundField DataField="hpno" HeaderText="Phone No" SortExpression="hpno" />
+                                    <asp:BoundField DataField="icno" HeaderText="IC No" SortExpression="icno" />
+                                    <asp:BoundField DataField="memberBring" HeaderText="No. Of Referral" SortExpression="memberBring" />
+                                    <asp:CheckBoxField DataField="isMember" HeaderText="Member?" SortExpression="isMember" />
+                                    <asp:CheckBoxField DataField="discount" HeaderText="Discount" SortExpression="discount" />
                                 </Fields>
                                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                                 <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -204,17 +215,23 @@
                     </tr>
                     <tr>
                         <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="beatID" DataSourceID="DS_beautician_dataview" ForeColor="#333333" GridLines="None" Height="50px" Width="600px" HorizontalAlign="Center"  FieldHeaderStyle-Width="150px">
                                 <AlternatingRowStyle BackColor="White" />
                                 <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
                                 <EditRowStyle BackColor="#2461BF" />
                                 <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                                <HeaderTemplate>Beautician Details</HeaderTemplate>
                                 <Fields>
-                                    <asp:BoundField DataField="beatID" HeaderText="beatID" ReadOnly="True" SortExpression="beatID" />
-                                    <asp:BoundField DataField="fname" HeaderText="fname" SortExpression="fname" />
-                                    <asp:BoundField DataField="lname" HeaderText="lname" SortExpression="lname" />
-                                    <asp:BoundField DataField="hpno" HeaderText="hpno" SortExpression="hpno" />
-                                    <asp:BoundField DataField="icno" HeaderText="icno" SortExpression="icno" />
+                                    <asp:BoundField DataField="beatID" HeaderText="Beautician ID" ReadOnly="True" SortExpression="beatID" />
+                                    <asp:BoundField DataField="fname" HeaderText="First Name" SortExpression="fname" />
+                                    <asp:BoundField DataField="lname" HeaderText="Last Name" SortExpression="lname" />
+                                    <asp:BoundField DataField="hpno" HeaderText="Phone No" SortExpression="hpno" />
+                                    <asp:BoundField DataField="icno" HeaderText="IC No" SortExpression="icno" />
                                 </Fields>
                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
