@@ -2,7 +2,6 @@
 
 <asp:Content ID="content" ContentPlaceHolderID="ctPlaceholder1" runat="server">
     <div>
-
         <div style="width: 60% ;margin: 0 auto;">
             <asp:Button ID="Button1" runat="server" PostBackUrl="~/WalkIn.aspx" Text="Walk In Customer" />
             <br />

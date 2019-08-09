@@ -2,49 +2,79 @@
 
 <asp:Content ID="content" ContentPlaceHolderID="ctPlaceholder1" runat="server">
     <div>
+        <table style="width: 100%; vertical-align: middle; text-align: center">
+            <tr>
+                <td>
+                    <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="New Customer" CssClass="w3-button w3-teal w3-round-xxlarge" Font-Bold="true" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="custID" DataSourceID="Cmds" CellPadding="4" GridLines="Horizontal" HorizontalAlign="Center" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px">
+                        <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:BoundField DataField="custID" HeaderText="CustomerID" ReadOnly="True" SortExpression="custID" />
+                            <asp:BoundField DataField="fname" HeaderText="FirstName" SortExpression="fname" />
+                            <asp:BoundField DataField="lname" HeaderText="LastName" SortExpression="lname" />
+                            <asp:BoundField DataField="hpno" HeaderText="PhoneNo" SortExpression="hpno" />
+                            <asp:BoundField DataField="icno" HeaderText="IC_No" SortExpression="icno" />
+                            <asp:BoundField DataField="memberBring" HeaderText="No_Referral" SortExpression="memberBring" />
+                            <asp:CheckBoxField DataField="isMember" HeaderText="Is_Member?" SortExpression="isMember" />
+                            <asp:CheckBoxField DataField="discount" HeaderText="Discount" SortExpression="discount" />
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#333333" />
+                        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="White" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#487575" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#275353" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer] WHERE ([custID] = @custID)" DeleteCommand="DELETE FROM [Customer] WHERE [custID] = @custID" InsertCommand="INSERT INTO [Customer] ([custID], [fname], [lname], [hpno], [icno], [memberBring], [isMember], [discount]) VALUES (@custID, @fname, @lname, @hpno, @icno, @memberBring, @isMember, @discount)" OnUpdated="refresh_databind" UpdateCommand="UPDATE [Customer] SET [fname] = @fname, [lname] = @lname, [hpno] = @hpno, [icno] = @icno, [memberBring] = @memberBring, [isMember] = @isMember, [discount] = @discount WHERE [custID] = @custID" OnInserted="refresh_databind" OnDeleted="refresh_databind">
+                        <DeleteParameters>
+                            <asp:Parameter Name="custID" Type="String" />
+                        </DeleteParameters>
+                        <InsertParameters>
+                            <asp:Parameter Name="custID" Type="String" />
+                            <asp:Parameter Name="fname" Type="String" />
+                            <asp:Parameter Name="lname" Type="String" />
+                            <asp:Parameter Name="hpno" Type="String" />
+                            <asp:Parameter Name="icno" Type="String" />
+                            <asp:Parameter Name="memberBring" Type="Int32" />
+                            <asp:Parameter Name="isMember" Type="Boolean" />
+                            <asp:Parameter Name="discount" Type="Boolean" />
+                        </InsertParameters>
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="GridView1" Name="custID" PropertyName="SelectedValue" Type="String" />
+                        </SelectParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="fname" Type="String" />
+                            <asp:Parameter Name="lname" Type="String" />
+                            <asp:Parameter Name="hpno" Type="String" />
+                            <asp:Parameter Name="icno" Type="String" />
+                            <asp:Parameter Name="memberBring" Type="Int32" />
+                            <asp:Parameter Name="isMember" Type="Boolean" />
+                            <asp:Parameter Name="discount" Type="Boolean" />
+                            <asp:Parameter Name="custID" Type="String" />
+                        </UpdateParameters>
+                    </asp:SqlDataSource>
+                </td>
+            </tr>
+        </table>
+
+
         <div>
-            <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="New Customer" />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="custID" DataSourceID="Cmds" >
-                <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
-                    <asp:BoundField DataField="custID" HeaderText="custID" ReadOnly="True" SortExpression="custID" />
-                    <asp:BoundField DataField="fname" HeaderText="fname" SortExpression="fname" />
-                    <asp:BoundField DataField="lname" HeaderText="lname" SortExpression="lname" />
-                    <asp:BoundField DataField="hpno" HeaderText="hpno" SortExpression="hpno" />
-                    <asp:BoundField DataField="icno" HeaderText="icno" SortExpression="icno" />
-                    <asp:BoundField DataField="memberBring" HeaderText="memberBring" SortExpression="memberBring" />
-                    <asp:CheckBoxField DataField="isMember" HeaderText="isMember" SortExpression="isMember" />
-                    <asp:CheckBoxField DataField="discount" HeaderText="discount" SortExpression="discount" />
-                </Columns>
-            </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer] WHERE ([custID] = @custID)" DeleteCommand="DELETE FROM [Customer] WHERE [custID] = @custID" InsertCommand="INSERT INTO [Customer] ([custID], [fname], [lname], [hpno], [icno], [memberBring], [isMember], [discount]) VALUES (@custID, @fname, @lname, @hpno, @icno, @memberBring, @isMember, @discount)" OnUpdated="refresh_databind" UpdateCommand="UPDATE [Customer] SET [fname] = @fname, [lname] = @lname, [hpno] = @hpno, [icno] = @icno, [memberBring] = @memberBring, [isMember] = @isMember, [discount] = @discount WHERE [custID] = @custID" OnInserted="refresh_databind" OnDeleted="refresh_databind">
-                <DeleteParameters>
-                    <asp:Parameter Name="custID" Type="String" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="custID" Type="String" />
-                    <asp:Parameter Name="fname" Type="String" />
-                    <asp:Parameter Name="lname" Type="String" />
-                    <asp:Parameter Name="hpno" Type="String" />
-                    <asp:Parameter Name="icno" Type="String" />
-                    <asp:Parameter Name="memberBring" Type="Int32" />
-                    <asp:Parameter Name="isMember" Type="Boolean" />
-                    <asp:Parameter Name="discount" Type="Boolean" />
-                </InsertParameters>
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="GridView1" Name="custID" PropertyName="SelectedValue" Type="String" />
-                </SelectParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="fname" Type="String" />
-                    <asp:Parameter Name="lname" Type="String" />
-                    <asp:Parameter Name="hpno" Type="String" />
-                    <asp:Parameter Name="icno" Type="String" />
-                    <asp:Parameter Name="memberBring" Type="Int32" />
-                    <asp:Parameter Name="isMember" Type="Boolean" />
-                    <asp:Parameter Name="discount" Type="Boolean" />
-                    <asp:Parameter Name="custID" Type="String" />
-                </UpdateParameters>
-            </asp:SqlDataSource>
             <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
             <asp:FormView ID="FormView1" runat="server" DataKeyNames="custID" DataSourceID="SqlDataSource1">
                 <EditItemTemplate>
