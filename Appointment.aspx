@@ -5,13 +5,13 @@
     <div>
         <table style="width:100%;">
             <tr>
-                <td>
+                <td style="padding:8px">
                     <label>Date: </label>
                 </td>
                 
             </tr>
             <tr>
-                <td style="vertical-align:middle; text-align:center">
+                <td style="vertical-align:middle; text-align:center; padding:8px">
                     <div style="width:350px">
                         <asp:Calendar ID="Calendar1" SelectedDate="<%# DateTime.Today %>" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" Width="350px" >
                         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
