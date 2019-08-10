@@ -32,6 +32,10 @@ namespace CannotMeh
             FormView1.DeleteItem();
         }
 
+        protected void cancel_select_click(object sender, EventArgs e)
+        {
+            GridView1.SelectedIndex = -1;
+        }
 
     }
 }

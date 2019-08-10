@@ -36,6 +36,11 @@ namespace CannotMeh
             FormView1.ChangeMode(FormViewMode.Insert);
         }
 
+        protected void cancel_select_click(object sender, EventArgs e)
+        {
+            GridView1.SelectedIndex = -1;
+        }
+
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
 

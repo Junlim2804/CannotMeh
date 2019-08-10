@@ -9,13 +9,179 @@
                 </td>
             </tr>
             <tr>
-                <td></td>
+                <td>
+                    <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Beautician]"></asp:SqlDataSource>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:FormView ID="FormView1" runat="server" DataKeyNames="beatID" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
+                <EditItemTemplate>
+                    <table style="border: solid; width: 500px; text-align: left">
+                        <tr>
+                            <td style="padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">Beautician ID : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:Label ID="beatIDLabel1" runat="server" Text='<%# Eval("beatID") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">First Name : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">Last Name : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">HP No : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:TextBox ID="hpnoTextBox" runat="server" Text='<%# Bind("hpno") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">IC No : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:center; padding: 5px">
+                                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                            </td>
+                        </tr>
+                    </table>
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    <table style="border: solid; width: 500px">
+                        <tr>
+                            <td>
+                                <asp:Label runat="server" Font-Bold="true">Beautician ID : </asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="beatIDTextBox" runat="server" Text='<%# Bind("beatID") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label runat="server" Font-Bold="true">First Name : </asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label runat="server" Font-Bold="true">Last Name : </asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label runat="server" Font-Bold="true">HP No : </asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="hpnoTextBox" runat="server" Text='<%# Bind("hpno") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label runat="server" Font-Bold="true">IC No : </asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' CssClass="w3-input w3-border" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center">
+                                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                &nbsp;&nbsp;&nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                            </td>
+                        </tr>
+                    </table>
+
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <table style="border: solid; width: 400px">
+                        <tr>
+                            <td style="text-align: left; padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">Beautician ID : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:Label ID="beatIDLabel" runat="server" Text='<%# Eval("beatID") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">First Name : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:Label ID="fnameLabel" runat="server" Text='<%# Bind("fname") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">Last Name : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:Label ID="lnameLabel" runat="server" Text='<%# Bind("lname") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">HP No : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:Label ID="hpnoLabel" runat="server" Text='<%# Bind("hpno") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; padding: 5px">
+                                <asp:Label runat="server" Font-Bold="true">IC No : </asp:Label>
+                            </td>
+                            <td style="padding: 5px">
+                                <asp:Label ID="icnoLabel" runat="server" Text='<%# Bind("icno") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center">
+                                <asp:Button ID="btnEdit" runat="server" OnClick="Edit_Click" Text="Edit" Width="80px" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                &nbsp;
+                                <asp:Button ID="Button2" runat="server" OnClick="delete_click" Text="Delete" Width="80px" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                &nbsp;
+                                <asp:Button ID="Button3" runat="server" OnClick="cancel_select_click" Text="Cancel" Width="80px" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                            </td>
+                        </tr>
+                    </table>
+                </ItemTemplate>
+            </asp:FormView>
+                </td>
             </tr>
             <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
+                <td>&nbsp;
+                </td>
             </tr>
             <tr>
                 <td>
@@ -65,79 +231,5 @@
                 </td>
             </tr>
         </table>
-
-
-        <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Beautician]"></asp:SqlDataSource>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="beatID" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
-                <EditItemTemplate>
-                    <asp:Table runat="server">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label runat="server">Beautician ID: </asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="beatIDLabel1" runat="server" Text='<%# Eval("beatID") %>' />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-
-                    <br />
-                    fname:
-                    <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' />
-                    <br />
-                    lname:
-                    <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' />
-                    <br />
-                    hpno:
-                    <asp:TextBox ID="hpnoTextBox" runat="server" Text='<%# Bind("hpno") %>' />
-                    <br />
-                    icno:
-                    <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' />
-                    <br />
-                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                </EditItemTemplate>
-                <InsertItemTemplate>
-                    beatID:
-                    <asp:TextBox ID="beatIDTextBox" runat="server" Text='<%# Bind("beatID") %>' />
-                    <br />
-                    fname:
-                    <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' />
-                    <br />
-                    lname:
-                    <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' />
-                    <br />
-                    hpno:
-                    <asp:TextBox ID="hpnoTextBox" runat="server" Text='<%# Bind("hpno") %>' />
-                    <br />
-                    icno:
-                    <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' />
-                    <br />
-                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    beatID:
-                    <asp:Label ID="beatIDLabel" runat="server" Text='<%# Eval("beatID") %>' />
-                    <br />
-                    fname:
-                    <asp:Label ID="fnameLabel" runat="server" Text='<%# Bind("fname") %>' />
-                    <br />
-                    lname:
-                    <asp:Label ID="lnameLabel" runat="server" Text='<%# Bind("lname") %>' />
-                    <br />
-                    hpno:
-                    <asp:Label ID="hpnoLabel" runat="server" Text='<%# Bind("hpno") %>' />
-                    <br />
-                    icno:
-                    <asp:Label ID="icnoLabel" runat="server" Text='<%# Bind("icno") %>' />
-                    <br />
-                    <asp:Button ID="btnEdit" runat="server" OnClick="Edit_Click" Text="Edit" />
-                    <asp:Button ID="Button2" runat="server" OnClick="delete_click" Text="Delete" />
-                    <br />
-                    <br />
-                </ItemTemplate>
-            </asp:FormView>
     </div>
 </asp:Content>
