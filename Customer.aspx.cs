@@ -37,11 +37,6 @@ namespace CannotMeh
             FormView1.ChangeMode(FormViewMode.Insert);
         }
 
-        protected void cancel_select_click(object sender, EventArgs e)
-        {
-            GridView1.SelectedIndex = -1;
-        }
-
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
 
@@ -154,13 +149,13 @@ namespace CannotMeh
 
 
 
-
+            conn.Open();
 
             String sql = "UPDATE [Customer] SET [fname] = @fname, [lname] = @lname,  [icno] = @icno, [memberBring] = @memberBring, [isMember] = @isMember, [discount] = @discount WHERE [custID] = @custID";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add("@fname", SqlDbType.VarChar);
             cmd.Parameters.Add("@lname", SqlDbType.VarChar);
-            cmd.Parameters.Add("@icno", SqlDbType.DateTime);
+            cmd.Parameters.Add("@icno", SqlDbType.VarChar);
             cmd.Parameters.Add("@memberBring", SqlDbType.Int);
             cmd.Parameters.Add("@isMember", SqlDbType.Bit);
             cmd.Parameters.Add("@discount", SqlDbType.Bit);
@@ -170,15 +165,15 @@ namespace CannotMeh
             cmd.Parameters["@lname"].Value = lname.Text;
             cmd.Parameters["@icno"].Value = ic.Text;
             cmd.Parameters["@memberbring"].Value = memberbring.Text;
-            cmd.Parameters["@cid"].Value = cid.Text;
+            cmd.Parameters["@custID"].Value = cid.Text;
             if (ismembercb.Checked)
-                cmd.Parameters["@isMember"].Value = "1";
+                cmd.Parameters["@isMember"].Value = true;
             else
-                cmd.Parameters["@isMember"].Value = "0";
+                cmd.Parameters["@isMember"].Value = false;
             if (discountcb.Checked)
-                cmd.Parameters["@discount"].Value = "1";
+                cmd.Parameters["@discount"].Value = true;
             else
-                cmd.Parameters["@discount"].Value = "0";
+                cmd.Parameters["@discount"].Value = false;
 
 
             cmd.ExecuteNonQuery();

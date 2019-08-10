@@ -59,7 +59,7 @@
                                         <asp:Label runat="server" Font-Bold="true">Service Type : </asp:Label>
                                     </td>
                                     <td>
-                                        <asp:DropDownList ID="typeTextBox" runat="server" SelectedValue='<%# Bind("type") %>' CssClass="w3-input w3-border">
+                                        <asp:DropDownList ID="typeTextBox" runat="server" SelectedValue='<%# Bind("type") %>' CssClass="w3-input w3-border" OnSelectedIndexChanged="typeTextBox_SelectedIndexChanged">
                                             <asp:ListItem>Skin Treatment</asp:ListItem>
                                             <asp:ListItem>FaceTreatement</asp:ListItem>
                                             <asp:ListItem>Body Massage</asp:ListItem>

@@ -75,14 +75,23 @@ namespace CannotMeh
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             FormView1.ChangeMode(FormViewMode.Insert);
-            FormView1.Visible = true;
             FormView1.DataBind();
+            TextBox tbcode = FormView1.FindControl("codeTextBox") as TextBox;
+            tbcode.Text = generate_code();
+            tbcode.Enabled = true;
+            FormView1.Visible = true;
+         
         }
 
         protected void FormView1_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
             if (e.CommandName == "Cancel")
                 FormView1.Visible = false;
+        }
+
+        protected void typeTextBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
