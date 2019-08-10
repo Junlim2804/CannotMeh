@@ -6,7 +6,7 @@
         <table style="width: 100%; text-align: center">
             <tr>
                 <td>
-                    <asp:Button ID="Button1" runat="server" OnClick="LinkButton1_Click" Text="New Customer" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                    <asp:Button ID="Button1" runat="server" OnClick="LinkButton1_Click" Text="New Service" CssClass="w3-button w3-teal w3-round-xxlarge" />
                 </td>
             </tr>
             <tr>
@@ -15,26 +15,52 @@
             </tr>
             <tr>
                 <td>
-                    <asp:FormView ID="FormView1" runat="server" DataKeyNames="code" DataSourceID="SqlDataSource2" OnItemUpdated="FormView1_ItemUpdated" Visible="False" OnModeChanging="FormView1_ModeChanged" OnItemCommand="FormView1_ItemCommand" HorizontalAlign="Center">
+                    <asp:FormView ID="FormView1" runat="server" DataKeyNames="code" DataSourceID="SqlDataSource2" OnItemUpdated="FormView1_ItemUpdated" Visible="False" OnModeChanging="FormView1_ModeChanged" OnItemCommand="FormView1_ItemCommand" HorizontalAlign="Center" OnItemInserted="FormView1_ItemInserted">
                         <EditItemTemplate>
-                            code:
-                    <asp:Label ID="codeLabel1" runat="server" Text='<%# Eval("code") %>' CssClass="w3-input w3-border" />
-                            <br />
-                            sName:
-                    <asp:TextBox ID="sNameTextBox" runat="server" Text='<%# Bind("sName") %>' CssClass="w3-input w3-border"/>
-                            <br />
-                            type:
-                    <asp:DropDownList ID="typeTextBox" runat="server" SelectedValue='<%# Bind("type") %>' CssClass="w3-input w3-border">
-                        <asp:ListItem>Skin Treatment</asp:ListItem>
-                        <asp:ListItem>FaceTreatement</asp:ListItem>
-                        <asp:ListItem>Body Massage</asp:ListItem>
-                    </asp:DropDownList>
-                            <br />
-                            price:
-                    <asp:TextBox ID="priceTextBox" runat="server" Text='<%# Bind("price") %>' CssClass="w3-input w3-border"/>
-                            <br />
-                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                            <table style="border: solid; width: 400px">
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Code : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="codeLabel1" runat="server" Text='<%# Eval("code") %>' CssClass="w3-input w3-border" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Service Name : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="sNameTextBox" runat="server" Text='<%# Bind("sName") %>' CssClass="w3-input w3-border"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Service Type : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:DropDownList ID="typeTextBox" runat="server" SelectedValue='<%# Bind("type") %>' CssClass="w3-input w3-border">
+                                            <asp:ListItem>Skin Treatment</asp:ListItem>
+                                            <asp:ListItem>FaceTreatement</asp:ListItem>
+                                            <asp:ListItem>Body Massage</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Price : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="priceTextBox" runat="server" Text='<%# Bind("price") %>' CssClass="w3-input w3-border"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center">
+                                        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                                        &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                    </td>
+                                </tr>
+                            </table>
                         </EditItemTemplate>
                         <InsertItemTemplate>
                             <table style="border: solid; width: 400px">
@@ -155,45 +181,90 @@
             </tr>
             <tr>
                 <td>
-                    <asp:DataList ID="DataList1" runat="server" DataKeyField="code" DataSourceID="SqlDataSource1" RepeatColumns="3" RepeatDirection="Horizontal" OnItemCommand="Item_Command" HorizontalAlign="Center">
+                    <asp:DataList ID="DataList1" runat="server" DataKeyField="code" DataSourceID="SqlDataSource1" RepeatColumns="3" RepeatDirection="Horizontal" OnItemCommand="Item_Command" HorizontalAlign="Center" OnSelectedIndexChanged="typeTextBox_SelectedIndexChanged">
                         <ItemTemplate>
-                            Code:
-                    <asp:Label ID="codeLabel" runat="server" Text='<%# Eval("code") %>' />
-                            <br />
-                            Service Name:
-                    <asp:Label ID="sNameLabel" runat="server" Text='<%# Eval("sName") %>' />
-                            <br />
-                            Service type:
-                    <asp:Label ID="typeLabel" runat="server" Text='<%# Eval("type") %>' />
-                            <br />
-                            Price:
-                    <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
-                            <br />
-                            <asp:LinkButton ID="SelectButton" Text="Select" CommandName="Select" runat="server" />
-                            <br />
-                            <br />
+                            <table style="border: solid; width: 400px; text-align: left">
+                                <tr>
+                                    <td style="width: 150px">
+                                        <asp:Label runat="server" Font-Bold="true">Code : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="codeLabel" runat="server" Text='<%# Eval("code") %>' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Service Name : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="sNameLabel" runat="server" Text='<%# Eval("sName") %>' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Service Type : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="typeLabel" runat="server" Text='<%# Eval("type") %>' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Price : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:center">
+                                        <asp:LinkButton ID="SelectButton" Text="Select" CommandName="Select" runat="server" Font-Bold="true" CssClass="w3-button" />
+                                    </td>
+                                </tr>
+                            </table>
                         </ItemTemplate>
                         <SelectedItemTemplate>
-                            Code:
-                    <asp:Label ID="codeLabel" runat="server" Text='<%# Eval("code") %>' />
-                            <br />
-                            Service Name:
-                    <asp:Label ID="sNameLabel" runat="server" Text='<%# Eval("sName") %>' />
-                            <br />
-                            Service type:
-                    <asp:Label ID="typeLabel" runat="server" Text='<%# Eval("type") %>' />
-                            <br />
-                            Price:
-                    <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
-                            <br />
-                            <br />
-                            <asp:LinkButton ID="EditButton" Text="Edit" CommandName="Edit" runat="server" />
-
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    
-                    <asp:LinkButton ID="CancelButton1" Text="Cancel" CommandName="Cancel" runat="server" />
-                            <br />
-                            <br />
+                            <table style="border: solid; width: 400px; text-align: left">
+                                <tr>
+                                    <td style="width: 150px">
+                                        <asp:Label runat="server" Font-Bold="true">Code : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="codeLabel" runat="server" Text='<%# Eval("code") %>' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Service Name : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="sNameLabel" runat="server" Text='<%# Eval("sName") %>' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Service Type : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="typeLabel" runat="server" Text='<%# Eval("type") %>' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Font-Bold="true">Price : </asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center">
+                                        <asp:LinkButton ID="EditButton" Text="Edit" CommandName="Edit" runat="server" CssClass="w3-button" />
+                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <asp:LinkButton ID="CancelButton1" Text="Cancel" CommandName="Cancel" runat="server" CssClass="w3-button"/>
+                                    </td>
+                                </tr>
+                            </table>
                         </SelectedItemTemplate>
                         <EditItemTemplate>
                             Code:
