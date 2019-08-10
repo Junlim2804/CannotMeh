@@ -174,7 +174,7 @@
                                         </td>
                                         <td style="padding: 5px">
                                             <!-- This one got error sia -->
-                                            <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%# Bind("isMember") %>' Enabled="false" /> 
+                                            <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%# Bind("isMember") %>' Enabled="false" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -188,8 +188,8 @@
                                     <tr>
                                         <td colspan="2" style="text-align: center; padding: 5px">
                                             <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="Edit_Click" />&nbsp;
-                                <asp:Button ID="btn_delete" runat="server" Text="Remove" OnClick="delete_click" />&nbsp;
-                                <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnClick="cancel_select_click" />
+                                            <asp:Button ID="btn_delete" runat="server" Text="Remove" OnClick="delete_click" />&nbsp;
+                                            <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnClick="cancel_select_click" />
                                         </td>
                                     </tr>
                                 </table>
