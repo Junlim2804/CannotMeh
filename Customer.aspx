@@ -9,8 +9,7 @@
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;
-                </td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>
@@ -18,36 +17,80 @@
                         <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
                         <asp:FormView ID="FormView1" runat="server" DataKeyNames="custID" DataSourceID="SqlDataSource1" OnItemInserted="FormView1_ItemInserted" HorizontalAlign="Center">
                             <EditItemTemplate>
-                                CustomerID:
-                    <asp:Label ID="custIDLabel1" runat="server" Enabled="false" Text='<%# Eval("custID") %>' />
-                                <br />
-                                First Name:
-                    <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' />
-                                <br />
-                                Last Name:
-                    <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' />
-                                <br />
-
-                                IcNo:
-                    <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' />
-                                <br />
-                                No of Member Bring:
-                    <asp:TextBox ID="memberBringTextBox" runat="server" Text='<%# Bind("memberBring") %>' />
-                                <br />
-                                Member:
-                    <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%# Bind("isMember") %>' />
-                                <br />
-                                Applicable for discount?:
-                    <asp:CheckBox ID="discountCheckBox" runat="server" Checked='<%# Bind("discount") %>' />
-                                <br />
-                                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                            </EditItemTemplate>
-                            <InsertItemTemplate>
-                                <table style="border: solid; width: 500px">
+                                <table style="border: solid; width: 500px; text-align: left">
                                     <tr>
                                         <td>
-                                            <asp:Label runat="server" Font-Bold="true">Customer Hp No : </asp:Label>
+                                            <asp:Label runat="server" Font-Bold="true">Customer ID : </asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="custIDLabel1" runat="server" Enabled="false" Text='<%# Eval("custID") %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">First Name : </asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' CssClass="w3-input w3-border" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">Last Name : </asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' CssClass="w3-input w3-border" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">IC No : </asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' CssClass="w3-input w3-border" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">No. of Referral : </asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="memberBringTextBox" runat="server" Text='<%# Bind("memberBring") %>' CssClass="w3-input w3-border" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">Member ? : </asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%# Eval("isMember").ToString()=="True"?true:false %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">Applicable for discount ? : </asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox ID="discountCheckBox" runat="server" Checked='<%# Eval("discount").ToString()=="True"?true:false %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align: center">
+                                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" Text="Update" OnClick="UpdateButton_Click" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </EditItemTemplate>
+                            <InsertItemTemplate>
+                                <table style="border: solid; text-align: left">
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">Customer ID (HP No) : </asp:Label>
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' CssClass="w3-input w3-border" />
@@ -106,7 +149,7 @@
                                             <asp:Label ID="lbrefhpno" runat="server" Text="Refererrel hpNo:" Visible="False" Font-Bold="true"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="tbhpno" runat="server" Visible="False" CssClass="w3-input w3-border" />
+                                            <asp:TextBox ID="tbhpno" runat="server" Visible="False" CssClass="w3-input w3-border"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:Button ID="btnSearch" runat="server" OnClick="Button1_Click" Text="Verify" Visible="False" />
@@ -114,82 +157,83 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td>
+                                        <td colspan="2">
                                             <asp:Label ID="lbcustname" runat="server" Text="Not Found" Visible="False"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3" style="text-align: center">
                                             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="w3-button w3-teal w3-round-xxlarge" />
-                                            &nbsp;&nbsp;&nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
                                         </td>
                                     </tr>
                                 </table>
+
                             </InsertItemTemplate>
                             <ItemTemplate>
-                                <table style="border: solid; width: 400px; text-align: left">
+                                <table style="width: 400px; border: solid; text-align: left">
                                     <tr>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label runat="server" Font-Bold="true">Customer ID : </asp:Label>
                                         </td>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label ID="custIDLabel" runat="server" Text='<%# Eval("custID") %>' />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label runat="server" Font-Bold="true">First Name : </asp:Label>
                                         </td>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label ID="fnameLabel" runat="server" Text='<%# Bind("fname") %>' />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label runat="server" Font-Bold="true">Last Name : </asp:Label>
                                         </td>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label ID="lnameLabel" runat="server" Text='<%# Bind("lname") %>' />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label runat="server" Font-Bold="true">IC No : </asp:Label>
                                         </td>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label ID="icnoLabel" runat="server" Text='<%# Bind("icno") %>' />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label runat="server" Font-Bold="true">No. of Referral : </asp:Label>
                                         </td>
-                                        <td style="padding: 5px">
+                                        <td>
                                             <asp:Label ID="memberBringLabel" runat="server" Text='<%# Bind("memberBring") %>' />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 5px">
-                                            <asp:Label runat="server" Font-Bold="true">Member? : </asp:Label>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">Member ? : </asp:Label>
                                         </td>
-                                        <td style="padding: 5px">
-                                            <!-- This one got error sia -->
-                                            <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%# Bind("isMember") %>' Enabled="false" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px">
-                                            <asp:Label runat="server" Font-Bold="true">Discount? : </asp:Label>
-                                        </td>
-                                        <td style="padding: 5px">
-                                            <asp:CheckBox ID="discountCheckBox" runat="server" Checked='<%# Bind("discount") %>' Enabled="false" />
+                                        <td>
+                                            <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%#Eval("isMember").ToString()=="True"?true:false%>' Enabled="false" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" style="text-align: center; padding: 5px">
-                                            <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="Edit_Click" />&nbsp;
-                                            <asp:Button ID="btn_delete" runat="server" Text="Remove" OnClick="delete_click" />&nbsp;
-                                            <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnClick="cancel_select_click" />
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">Discount ? : </asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox ID="discountCheckBox" runat="server" Checked='<%#Eval("discount").ToString()=="True"?true:false%>' Enabled="false" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align: center">
+                                            <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="Edit_Click" CssClass="w3-button w3-teal w3-round-xxlarge"/>
+                                            &nbsp;
+                    <asp:Button ID="btn_delete" runat="server" Text="Remove" OnClick="delete_click" CssClass="w3-button w3-teal w3-round-xxlarge"/>&nbsp;
+                    <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnClick="cancel_select_click" CssClass="w3-button w3-teal w3-round-xxlarge"/>
                                         </td>
                                     </tr>
                                 </table>
@@ -199,8 +243,7 @@
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;
-                </td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>
@@ -246,9 +289,6 @@
                         <UpdateParameters>
                             <asp:Parameter Name="fname" Type="String" />
                             <asp:Parameter Name="lname" Type="String" />
-
-
-
                             <asp:Parameter Name="icno" Type="String" />
                             <asp:Parameter Name="memberBring" Type="Int32" />
                             <asp:Parameter Name="isMember" Type="Boolean" />
@@ -259,6 +299,5 @@
                 </td>
             </tr>
         </table>
-
     </div>
 </asp:Content>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -34,11 +35,6 @@ namespace CannotMeh
         protected void btnNew_Click(object sender, EventArgs e)
         {
             FormView1.ChangeMode(FormViewMode.Insert);
-        }
-
-        protected void cancel_select_click(object sender, EventArgs e)
-        {
-            GridView1.SelectedIndex = -1;
         }
 
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
@@ -136,6 +132,57 @@ namespace CannotMeh
                 cb_ref.Visible = false;
                 lbref.Visible = false;
             }
+
+        }
+
+        protected void UpdateButton_Click(object sender, EventArgs e)
+        {
+            Label cid = FormView1.FindControl("custIDLabel1") as Label;
+            TextBox fname= FormView1.FindControl("fnameTextBox") as TextBox;
+            TextBox lname = FormView1.FindControl("lnameTextBox") as TextBox;
+            TextBox ic = FormView1.FindControl("icnoTextBox") as TextBox;
+            TextBox memberbring = FormView1.FindControl("memberBringTextBox") as TextBox;
+            CheckBox ismembercb = FormView1.FindControl("isMemberCheckBox") as CheckBox;
+            CheckBox discountcb = FormView1.FindControl("discountCheckBox") as CheckBox;
+
+
+
+
+
+            conn.Open();
+
+            String sql = "UPDATE [Customer] SET [fname] = @fname, [lname] = @lname,  [icno] = @icno, [memberBring] = @memberBring, [isMember] = @isMember, [discount] = @discount WHERE [custID] = @custID";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.Add("@fname", SqlDbType.VarChar);
+            cmd.Parameters.Add("@lname", SqlDbType.VarChar);
+            cmd.Parameters.Add("@icno", SqlDbType.VarChar);
+            cmd.Parameters.Add("@memberBring", SqlDbType.Int);
+            cmd.Parameters.Add("@isMember", SqlDbType.Bit);
+            cmd.Parameters.Add("@discount", SqlDbType.Bit);
+            cmd.Parameters.Add("@custID", SqlDbType.VarChar);
+            
+            cmd.Parameters["@fname"].Value = fname.Text;
+            cmd.Parameters["@lname"].Value = lname.Text;
+            cmd.Parameters["@icno"].Value = ic.Text;
+            cmd.Parameters["@memberbring"].Value = memberbring.Text;
+            cmd.Parameters["@custID"].Value = cid.Text;
+            if (ismembercb.Checked)
+                cmd.Parameters["@isMember"].Value = true;
+            else
+                cmd.Parameters["@isMember"].Value = false;
+            if (discountcb.Checked)
+                cmd.Parameters["@discount"].Value = true;
+            else
+                cmd.Parameters["@discount"].Value = false;
+
+
+            cmd.ExecuteNonQuery();
+            GridView1.DataBind();
+            FormView1.ChangeMode(FormViewMode.ReadOnly);
+            
+            FormView1.DataBind();
+            FormView1.Focus();
+            conn.Close();
 
         }
     }

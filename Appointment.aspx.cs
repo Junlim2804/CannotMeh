@@ -23,8 +23,8 @@ namespace CannotMeh
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            FormView1.Visible = true;
             BindFormView();
-
         }
 
         private void BindFormView()
@@ -52,6 +52,12 @@ namespace CannotMeh
         {
             FormView1.ChangeMode(FormViewMode.Edit);
             BindFormView();
+        }
+        
+        protected void btn_cancel_click(object sender, EventArgs e)
+        {
+            GridView1.SelectedIndex = -1;
+            FormView1.Visible = false;
         }
 
         protected void FormView1_ItemUpdating(object sender, FormViewUpdateEventArgs e)

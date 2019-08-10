@@ -28,7 +28,7 @@ namespace CannotMeh
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             code=(String)cmd.ExecuteScalar();
-            code =code.Substring(0,1)+(Convert.ToInt32(code.Substring(1, 3))+1);
+            code = code.Substring(0, 1) + (Convert.ToInt32(code.Substring(1, code.Length - 1)) + 1);
             conn.Close();
             return code;
         }
@@ -36,14 +36,18 @@ namespace CannotMeh
         protected void Item_Command(Object sender, DataListCommandEventArgs e)
         {
             if (e.CommandName == "Select")
+            {
                 DataList1.SelectedIndex = e.Item.ItemIndex;
+                FormView1.Visible = true;
+                FormView1.ChangeMode(FormViewMode.ReadOnly);
+            }
             else if (e.CommandName == "Edit")
-            { 
+            {
                 FormView1.Visible = true;
                 FormView1.ChangeMode(FormViewMode.Edit);
                 FormView1.DataBind();
 
-            }    
+            }
             else if (e.CommandName == "Cancel")
                 DataList1.SelectedIndex = -1;
        
@@ -54,7 +58,7 @@ namespace CannotMeh
 
         protected void FormView1_ItemUpdating(object sender, FormViewUpdateEventArgs e)
         {
-
+            
         }
 
         protected void FormView1_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
@@ -75,14 +79,28 @@ namespace CannotMeh
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             FormView1.ChangeMode(FormViewMode.Insert);
-            FormView1.Visible = true;
             FormView1.DataBind();
+            TextBox tbcode = FormView1.FindControl("codeTextBox") as TextBox;
+            tbcode.Text = generate_code();
+            tbcode.Enabled = true;
+            FormView1.Visible = true;
+         
         }
 
         protected void FormView1_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
             if (e.CommandName == "Cancel")
                 FormView1.Visible = false;
+        }
+
+        protected void typeTextBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            DataList1.DataBind();
         }
     }
 }

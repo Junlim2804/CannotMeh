@@ -132,6 +132,7 @@
     <Content Include="NewAppointment.aspx" />
     <Content Include="Payment.aspx" />
     <Content Include="ConfirmPayment.aspx" />
+    <Content Include="Report.aspx" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -239,6 +240,13 @@
       <DependentUpon>ConfirmPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Service.aspx.cs">
       <DependentUpon>Service.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
