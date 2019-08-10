@@ -78,7 +78,7 @@
 
         <div>
             <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="custID" DataSourceID="SqlDataSource1" style="margin-right: 389px" OnItemInserted="FormView1_ItemInserted">
+            <asp:FormView ID="FormView1" runat="server" DataKeyNames="custID" DataSourceID="SqlDataSource1" style="margin-right: 389px" OnItemInserted="FormView1_ItemInserted" >
                 <EditItemTemplate>
                     CustomerID:
                     <asp:Label ID="custIDLabel1" runat="server" Enabled="false" Text='<%# Eval("custID") %>' />
@@ -97,19 +97,19 @@
                     <asp:TextBox ID="memberBringTextBox" runat="server" Text='<%# Bind("memberBring") %>' />
                     <br />
                     Member:
-                    <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%# Bind("isMember") %>' />
+                    <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%# Eval("isMember").ToString()=="True"?true:false %>'  />
                     <br />
                     Applicable for discount?:
-                    <asp:CheckBox ID="discountCheckBox" runat="server" Checked='<%# Bind("discount") %>' />
+                    <asp:CheckBox ID="discountCheckBox" runat="server" Checked='<%# Eval("discount").ToString()=="True"?true:false %>' />
                     <br />
-                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" Text="Update" OnClick="UpdateButton_Click" />
                     &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                 </EditItemTemplate>
                 <InsertItemTemplate>
                     CustomerID&nbsp; :
                     <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' />
                     <br />
-                    (Hp number)<br /> First Name&nbsp;&nbsp;&nbsp; :
+                    (Hp number)<br />First Name&nbsp;&nbsp;&nbsp; :
                     <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' />
                     <br />
                     Last Name&nbsp;&nbsp;&nbsp; :
@@ -135,7 +135,7 @@
                     <asp:Label ID="lbcustname" runat="server" Text="Not Found" Visible="False"></asp:Label>
                     <br />
                     <br />
-                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert"/>
                     &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                 </InsertItemTemplate>
                 <ItemTemplate>
@@ -155,10 +155,10 @@
                     <asp:Label ID="memberBringLabel" runat="server" Text='<%# Bind("memberBring") %>' />
                     <br />
                     isMember:
-                    <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%# Bind("isMember") %>' Enabled="false" />
+                    <asp:CheckBox ID="isMemberCheckBox" runat="server" Checked='<%#Eval("isMember").ToString()=="True"?true:false%>' Enabled="false" />
                     <br />
                     discount:
-                    <asp:CheckBox ID="discountCheckBox" runat="server" Checked='<%# Bind("discount") %>' Enabled="false" />
+                    <asp:CheckBox ID="discountCheckBox" runat="server" Checked='<%#Eval("discount").ToString()=="True"?true:false%>' Enabled="false" />
                     <br />
 
                     <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="Edit_Click" />

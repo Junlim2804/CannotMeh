@@ -22,6 +22,7 @@ namespace CannotMeh
             code = "";
             datenow= DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             double price = 0;
+            double p_discount = 0;
             beatid = Request.QueryString["beatid"];
             custid = Request.QueryString["custid"];
             code = Request.QueryString["code"];
@@ -58,9 +59,27 @@ namespace CannotMeh
            
                 if (discount == 1)
                 {
-                    lbdiscount.Text = (price * 0.1).ToString();
-                    price = price * 0.9;
+                    p_discount =+ 0.1;
                 }
+                sql = "Select memberbring from customer where custid=@custid";
+                cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.Add("@custid", SqlDbType.VarChar);
+                cmd.Parameters["@custid"].Value = custid;
+                int memberBring = 0;
+                if (cmd.ExecuteScalar() != null)
+                {
+                   memberBring = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+                if (memberBring == 0)
+                    p_discount = 0;
+                else if (memberBring <= 5)
+                    p_discount = 0.3;
+                else
+                    p_discount = 0.5;
+
+                lbdiscount.Text = (price * p_discount).ToString();
+                price = price * (1-p_discount);
                 lbamount.Text = price.ToString();
                 amount = price.ToString();
                 conn.Close();
