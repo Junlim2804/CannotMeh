@@ -1,16 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Report.aspx.cs" EnableEventValidation = "false" Inherits="CannotMeh.Report" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Report.aspx.cs" EnableEventValidation = "false" Inherits="CannotMeh.Report" MasterPageFile="~/Site1.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Payment] where cast(paydate as date)=cast(getdate() as date)"></asp:SqlDataSource>
+<asp:Content ID="content" ContentPlaceHolderID="ctPlaceholder1" runat="server">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Payment] where cast(paydate as date)=cast(getdate() as date)"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Payment] WHERE ([payDate] = @payDate)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="Calendar1" Name="payDate" PropertyName="SelectedDate" Type="DateTime" />
@@ -38,6 +29,4 @@
         <p>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Exort to Excel" />
         </p>
-    </form>
-</body>
-</html>
+</asp:Content>

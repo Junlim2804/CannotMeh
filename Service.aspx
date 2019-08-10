@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:FormView ID="FormView1" runat="server" DataKeyNames="code" DataSourceID="SqlDataSource2" OnItemUpdated="FormView1_ItemUpdated" Visible="False" OnModeChanging="FormView1_ModeChanged" OnItemCommand="FormView1_ItemCommand" HorizontalAlign="Center" OnItemInserted="FormView1_ItemInserted">
+                    <asp:FormView ID="FormView1" runat="server" DataKeyNames="code" DataSourceID="SqlDataSource2" OnItemUpdated="FormView1_ItemUpdated" Visible="False" OnModeChanging="FormView1_ModeChanged" OnItemCommand="FormView1_ItemCommand" HorizontalAlign="Center" OnItemInserted="FormView1_ItemInserted" OnItemDeleted="FormView1_ItemDeleted">
                         <EditItemTemplate>
                             <table style="border: solid; width: 400px">
                                 <tr>
@@ -109,7 +109,7 @@
                             </table>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <table style="border: solid">
+                            <table style="border: solid; width: 400px">
                                 <tr>
                                     <td>
                                         <asp:Label runat="server" Font-Bold="true">Service Code : </asp:Label>

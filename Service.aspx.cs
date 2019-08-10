@@ -40,6 +40,7 @@ namespace CannotMeh
                 DataList1.SelectedIndex = e.Item.ItemIndex;
                 FormView1.Visible = true;
                 FormView1.ChangeMode(FormViewMode.ReadOnly);
+                FormView1.DataBind();
             }
             else if (e.CommandName == "Edit")
             {
@@ -90,7 +91,13 @@ namespace CannotMeh
         protected void FormView1_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
             if (e.CommandName == "Cancel")
+            {
                 FormView1.Visible = false;
+                FormView1.ChangeMode(FormViewMode.ReadOnly);
+                FormView1.DataBind();
+                DataList1.SelectedIndex = -1;
+                DataList1.DataBind();
+            }
         }
 
         protected void typeTextBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,6 +108,13 @@ namespace CannotMeh
         protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
         {
             DataList1.DataBind();
+        }
+
+        protected void FormView1_ItemDeleted(object sender, FormViewDeletedEventArgs e)
+        {
+            DataList1.DataBind();
+            FormView1.ChangeMode(FormViewMode.ReadOnly);
+            FormView1.Visible = false;
         }
     }
 }
