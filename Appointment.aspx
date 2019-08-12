@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Appointment.aspx.cs" Inherits="CannotMeh.Appointmnet" MasterPageFile="~/Site1.Master" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Appointment.aspx.cs" Inherits="CannotMeh.Appointmnet" MasterPageFile="~/Site1.Master" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="ctPlaceholder1" runat="server">
 
