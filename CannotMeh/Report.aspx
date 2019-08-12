@@ -34,7 +34,7 @@
     </div>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Payment] where cast(paydate as date)=cast(getdate() as date)"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Payment] WHERE ([payDate] = @payDate)">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Payment] where cast(paydate as date)=cast(@payDate as date)" OnSelecting="SqlDataSource2_Selecting">
             <SelectParameters>
                 <asp:ControlParameter ControlID="Calendar1" Name="payDate" PropertyName="SelectedDate" Type="DateTime" />
             </SelectParameters>
