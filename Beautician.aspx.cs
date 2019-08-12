@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -29,7 +30,13 @@ namespace CannotMeh
 
         protected void delete_click(object sender, EventArgs e)
         {
-            FormView1.DeleteItem();
+            try
+            {
+                FormView1.DeleteItem();
+            }catch(SqlException ex)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Error Delete, Please contact System Administrator');", true);
+            }
         }
 
         protected void cancel_select_click(object sender, EventArgs e)
@@ -37,5 +44,14 @@ namespace CannotMeh
             GridView1.SelectedIndex = -1;
         }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            GridView1.DataBind();
+        }
+
+        protected void tbsearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

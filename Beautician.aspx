@@ -7,10 +7,18 @@
                 <td>
                     <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="New Beautician" CssClass="w3-button w3-teal w3-round-xxlarge" Font-Bold="true" />
                 </td>
-            </tr>
+            </tr>              
+                <td>
+                    <asp:TextBox ID="tbsearch" runat="server" style="line-height:20px;margin-bottom:0px;vertical-align: baseline;padding: 0px;" BorderStyle="Solid"  Height="20px" ToolTip="Enter Beautician ID"></asp:TextBox>
+                    <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" CssClass="w3-button w3-teal w3-round-xxlarge"  Text="Search" BorderStyle="Dashed" ForeColor="Black" Height="40px" Width="92px" />
+                </td>                    
             <tr>
                 <td>
-                    <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Beautician]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Beautician] WHERE ([beatID] like @beatID+'%')">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="tbsearch" DefaultValue="B" Name="beatID" PropertyName="Text" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:FormView ID="FormView1" runat="server" DataKeyNames="beatID" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
                 <EditItemTemplate>
