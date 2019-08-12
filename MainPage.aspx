@@ -50,57 +50,22 @@
         <div style="text-align: center;">
         <span class="label">CannotMeh System</span>
         <div style="width: 400px; margin-left: auto; margin-right:auto;padding-top:50px">
-             <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Appointment.aspx">
-                 <LayoutTemplate>
-                     <table cellpadding="1" cellspacing="0" style="border-collapse:collapse;">
-                         <tr>
-                             <td>
-                                 <table cellpadding="0">
-                                     <tr>
-                                         <td align="center" colspan="2"></td>
-                                     </tr>
-                                     <tr>
-                                         <td align="right">
-                                             <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
-                                         </td>
-                                         <td>
-                                             <asp:TextBox ID="UserName" class="w3-input w3-border w3-sand" runat="server"></asp:TextBox>
-                                             <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
-                                         </td>
-                                     </tr>
-                                     <tr>
-                                         <td align="right">
-                                             <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
-                                         </td>
-                                         <td>
-                                             <asp:TextBox ID="Password" class="w3-input w3-border w3-sand" runat="server" TextMode="Password"></asp:TextBox>
-                                             <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
-                                         </td>
-                                     </tr>
-                                     <tr>
-                                         <td colspan="2">&nbsp;</td>
-                                     </tr>
-                                     <tr>
-                                         <td align="center" colspan="2" style="color:Red;">
-                                             <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
-                                         </td>
-                                     </tr>
-                                     <tr>
-                                         <td align="center" colspan="2">
-                                             <asp:Button class="button" ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="Login1" />
-                                         </td>
-                                     </tr>
-                                 </table>
-                             </td>
-                         </tr>
-                     </table>
-                 </LayoutTemplate>
-             </asp:Login>
+                       <h3>Login</h3>
+
+            <br />
+
+          Username: <asp:Textbox id="UsernameTextbox" runat="server" /><br />
+          Password: <asp:Textbox id="PasswordTextbox" runat="server" TextMode="Password" />
+                    <br />
+
+          <asp:Label id="Msg" ForeColor="maroon" runat="server" /><br />
  
-        </div>
- 
-        </div>
+          <asp:Button id="LoginButton" Text="Login" OnClick="Login_OnClick" runat="server" />
+          &nbsp;</div>
         
+ 
+        </div>
+     
         
     </form>
 </body>

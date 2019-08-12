@@ -14,8 +14,9 @@
                     </td>
                     <td colspan="2" style="padding:8px">
                         <asp:DropDownList ID="ddlcustomer" CssClass="w3-input w3-border" AppendDataBoundItems="true" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="custID" DataValueField="custID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                            <asp:ListItem>Please Select Customer Handphone No</asp:ListItem>
+                            <asp:ListItem Value="0">Please Select Customer Handphone No</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlcustomer" display="dynamic" errormessage="Please Select" setfocusonerror="true" initialvalue="0" ValidationGroup="ap" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                         <asp:Label ID="lblCustID" runat="server" Enabled="true" Text='<%# Bind("custID") %>' />
                         <asp:Button ID="btnChange" runat="server" Text="Change" OnClick="btnChange_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xlarge" />
                     </td>
@@ -26,8 +27,9 @@
                     </td>
                     <td colspan="2" style="padding:8px"> 
                         <asp:DropDownList ID="ddlBeautician" CssClass="w3-input w3-border" AppendDataBoundItems="True" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="fname" DataValueField="beatID" OnSelectedIndexChanged="DdlBeautician_SelectedIndexChanged">
-                            <asp:ListItem>Please Select Beautician ID</asp:ListItem>
+                            <asp:ListItem Value="0">Please Select Beautician ID</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlBeautician" display="dynamic" errormessage="Please Select" setfocusonerror="true" initialvalue="0" ValidationGroup="ap" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:Label ID="lblBeatID" runat="server" Text='<%# Bind("BeatID") %>' />
                         <asp:Button ID="btnChange1" runat="server" Text="Change" OnClick="btnChange1_Click" Visible="False" CssClass="w3-button w3-teal w3-round-xlarge" />
                     </td>
@@ -65,6 +67,7 @@
                     </td>
                     <td colspan="2" style="padding:8px">
                         <asp:DropDownList ID="ddlHour" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTime_SelectedIndexChanged">
+                            <asp:ListItem Value="0">hour</asp:ListItem>
                             <asp:ListItem>10</asp:ListItem>
                             <asp:ListItem>11</asp:ListItem>
                             <asp:ListItem>12</asp:ListItem>
@@ -76,6 +79,7 @@
                         </asp:DropDownList>
                         &nbsp
                     <asp:DropDownList ID="ddlMin" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTime_SelectedIndexChanged">
+                        <asp:ListItem Value="0">Min</asp:ListItem>
                         <asp:ListItem>00</asp:ListItem>
                         <asp:ListItem>01</asp:ListItem>
                         <asp:ListItem>02</asp:ListItem>
@@ -137,7 +141,11 @@
                         <asp:ListItem>58</asp:ListItem>
                         <asp:ListItem>59</asp:ListItem>
                     </asp:DropDownList>
-                    </td>
+                        <br />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlHour" display="dynamic" errormessage="Please Select Hour" setfocusonerror="true" initialvalue="0" ValidationGroup="ap" ID="RequiredFieldValidator4" ForeColor="Red"></asp:RequiredFieldValidator>
+                    &nbsp;<br />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlHour" display="dynamic" errormessage="Please Select Minute" setfocusonerror="true" initialvalue="0" ValidationGroup="ap" ID="RequiredFieldValidator5" ForeColor="Red"></asp:RequiredFieldValidator>
+                    &nbsp;</td>
                 </tr>
                 <tr>
                     <td style="padding:8px">
@@ -145,8 +153,9 @@
                     </td>
                     <td colspan="2" style="padding:8px">
                         <asp:DropDownList ID="ddlService" runat="server" CssClass="w3-input w3-border" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="Ds_code" DataTextField="sName" DataValueField="code" OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
-                            <asp:ListItem>Select Services</asp:ListItem>
+                            <asp:ListItem Value="0">Select Services</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlService" display="dynamic" errormessage="Please Select Service" setfocusonerror="true" initialvalue="0" ValidationGroup="ap" ID="RequiredFieldValidator6" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:SqlDataSource ID="Ds_code" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [code], [sName], [type], [price] FROM [Services]"></asp:SqlDataSource>
                         <asp:Label ID="lblCode" runat="server" Text='<%# Bind("sName") %>' Visible="False" />
                     </td>
@@ -165,6 +174,9 @@
                     </td>
                     <td colspan="2" style="padding:8px">
                         <asp:TextBox ID="depositTextBox" runat="server" CssClass="w3-input w3-border" Text='<%# Bind("deposit") %>' />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="depositTextBox" ErrorMessage="Please Enter Deposit" ForeColor="Red" ValidationGroup="ap"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="depositTextBox" ErrorMessage="Please Input Number Only" ForeColor="#FF3300" SetFocusOnError="True" ValidationExpression="^\d{0,8}(\.\d{0,2})?$" ValidationGroup="ap"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -174,7 +186,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" style="padding:8px">
-                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" OnClick="InsertButton_Click" CssClass="w3-button w3-teal w3-round-xxlarge" Width="100px" />
+                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" OnClick="InsertButton_Click" CssClass="w3-button w3-teal w3-round-xxlarge" Width="100px" ValidationGroup="ap" />
                         &nbsp;&nbsp;
                     <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" Width="100px" />
                     </td>

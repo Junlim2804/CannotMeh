@@ -44,6 +44,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="lnameTextBox" ErrorMessage="Please Fill First Name" ForeColor="Red" ValidationGroup="e"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -52,6 +53,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="lnameTextBox" ErrorMessage="Please Fill Last Name" ForeColor="Red" ValidationGroup="e"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -60,6 +62,9 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="icnoTextBox" ErrorMessage="Please Fill IcNo" ForeColor="Red" ValidationGroup="e"></asp:RequiredFieldValidator>
+                                            <br />
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="icnoTextBox" ErrorMessage="Invalid ICno" ForeColor="Red" ValidationExpression="\d{12}" ValidationGroup="e"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -68,6 +73,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="memberBringTextBox" runat="server" Text='<%# Bind("memberBring") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="memberBringTextBox" ErrorMessage="Please Fill in No of Referral" ForeColor="Red" ValidationGroup="e"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -92,7 +98,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2" style="text-align: center">
-                                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" Text="Update" OnClick="UpdateButton_Click" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                            <asp:LinkButton ID="UpdateButton" runat="server" ValidationGroup="e" CausesValidation="True" Text="Update" OnClick="UpdateButton_Click" CssClass="w3-button w3-teal w3-round-xxlarge" />
                                             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
                                         </td>
                                     </tr>
@@ -106,6 +112,8 @@
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="fnameTextBox" ErrorMessage="Please Fill HpNo" ForeColor="Red" ValidationGroup="cs"></asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="custIDTextBox" ErrorMessage="Invalid HpNo" ForeColor="Red" ValidationExpression="\d{10,11}" ValidationGroup="cs"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -114,6 +122,7 @@
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="fnameTextBox" ErrorMessage="Please Fill First Name" ForeColor="Red" ValidationGroup="cs"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -122,6 +131,7 @@
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="lnameTextBox" ErrorMessage="Please Fill Last Name" ForeColor="Red" ValidationGroup="cs"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -130,6 +140,8 @@
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="icnoTextBox" Display="Dynamic" ErrorMessage="Please Fill ICNo" ForeColor="Red" ValidationGroup="cs"></asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="icnoTextBox" ErrorMessage="Invalid ICno" ForeColor="Red" ValidationExpression="\d{12}" ValidationGroup="cs"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -175,7 +187,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="3" style="text-align: center">
-                                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="w3-button w3-teal w3-round-xxlarge" ValidationGroup="cs" />
                                             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
                                         </td>
                                     </tr>

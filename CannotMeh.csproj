@@ -106,19 +106,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Appointment.aspx" />
+    <Content Include="CannotMeh\Appointment.aspx" />
     <Content Include="App_Data\cmDB.mdf" />
     <Content Include="App_Data\cmDB_log.ldf">
       <DependentUpon>cmDB.mdf</DependentUpon>
     </Content>
-    <Content Include="Beautician.aspx" />
+    <Content Include="CannotMeh\Beautician.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Customer.aspx" />
+    <Content Include="CannotMeh\Customer.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -131,11 +131,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="CannotMeh\logout.aspx" />
     <Content Include="MainPage.aspx" />
-    <Content Include="NewAppointment.aspx" />
-    <Content Include="Payment.aspx" />
-    <Content Include="ConfirmPayment.aspx" />
-    <Content Include="Report.aspx" />
+    <Content Include="CannotMeh\NewAppointment.aspx" />
+    <Content Include="CannotMeh\Payment.aspx" />
+    <Content Include="CannotMeh\ConfirmPayment.aspx" />
+    <Content Include="CannotMeh\Report.aspx" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -157,21 +158,21 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Service.aspx" />
+    <Content Include="CannotMeh\Service.aspx" />
     <Content Include="Site.Master" />
     <Content Include="tempCreateAcc.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="WalkIn.aspx" />
+    <Content Include="CannotMeh\WalkIn.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Appointment.aspx.cs">
+    <Compile Include="CannotMeh\Appointment.aspx.cs">
       <DependentUpon>Appointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Appointment.aspx.designer.cs">
+    <Compile Include="CannotMeh\Appointment.aspx.designer.cs">
       <DependentUpon>Appointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -183,11 +184,11 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Beautician.aspx.cs">
+    <Compile Include="CannotMeh\Beautician.aspx.cs">
       <DependentUpon>Beautician.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Beautician.aspx.designer.cs">
+    <Compile Include="CannotMeh\Beautician.aspx.designer.cs">
       <DependentUpon>Beautician.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
@@ -197,11 +198,11 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer.aspx.cs">
+    <Compile Include="CannotMeh\Customer.aspx.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer.aspx.designer.cs">
+    <Compile Include="CannotMeh\Customer.aspx.designer.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -214,6 +215,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="CannotMeh\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CannotMeh\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,40 +229,40 @@
     <Compile Include="MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NewAppointment.aspx.cs">
+    <Compile Include="CannotMeh\NewAppointment.aspx.cs">
       <DependentUpon>NewAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NewAppointment.aspx.designer.cs">
+    <Compile Include="CannotMeh\NewAppointment.aspx.designer.cs">
       <DependentUpon>NewAppointment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Payment.aspx.cs">
+    <Compile Include="CannotMeh\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Payment.aspx.designer.cs">
+    <Compile Include="CannotMeh\Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmPayment.aspx.cs">
+    <Compile Include="CannotMeh\ConfirmPayment.aspx.cs">
       <DependentUpon>ConfirmPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConfirmPayment.aspx.designer.cs">
+    <Compile Include="CannotMeh\ConfirmPayment.aspx.designer.cs">
       <DependentUpon>ConfirmPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report.aspx.cs">
+    <Compile Include="CannotMeh\Report.aspx.cs">
       <DependentUpon>Report.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Report.aspx.designer.cs">
+    <Compile Include="CannotMeh\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Service.aspx.cs">
+    <Compile Include="CannotMeh\Service.aspx.cs">
       <DependentUpon>Service.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Service.aspx.designer.cs">
+    <Compile Include="CannotMeh\Service.aspx.designer.cs">
       <DependentUpon>Service.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
@@ -292,11 +300,11 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WalkIn.aspx.cs">
+    <Compile Include="CannotMeh\WalkIn.aspx.cs">
       <DependentUpon>WalkIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WalkIn.aspx.designer.cs">
+    <Compile Include="CannotMeh\WalkIn.aspx.designer.cs">
       <DependentUpon>WalkIn.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
