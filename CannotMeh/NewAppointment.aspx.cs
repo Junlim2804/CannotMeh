@@ -15,7 +15,10 @@ namespace CannotMeh
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
- 
+            if (!IsPostBack)
+            {
+                calAppDate.SelectedDate = DateTime.Today;
+            }
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)          
@@ -95,9 +98,16 @@ namespace CannotMeh
             
             cmd.Parameters["@code"].Value = lblCode.Text;
             cmd.Parameters["@price"].Value = depositTextBox.Text;
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            Response.Redirect("Appointment.aspx");
+            try
+            {
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Response.Redirect("Appointment.aspx");
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Error, Please make sure every value fill in correctly');", true);
+            }
 
         }
     }

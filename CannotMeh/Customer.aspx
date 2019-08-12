@@ -4,17 +4,29 @@
     <div>
         <table style="width: 100%; vertical-align: middle; text-align: center">
             <tr>
-                <td>
+                <td style="height: 41px">
                     <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="New Customer" CssClass="w3-button w3-teal w3-round-xxlarge" Font-Bold="true" />
+                   
                 </td>
+                
+                   
+                
+               
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:TextBox ID="tbsearch" runat="server" style="line-height:20px;margin-bottom:0px;vertical-align: baseline;padding: 0px;" BorderStyle="Solid"  Height="20px" ToolTip="Enter Customer ID"></asp:TextBox>
+                    <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" CssClass="w3-button w3-teal w3-round-xxlarge"  Text="Search" BorderStyle="Dashed" ForeColor="Black" Height="40px" Width="92px" />
+                </td>
             </tr>
             <tr>
                 <td>
                     <div>
-                        <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="Cmds" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer] WHERE ([custID] like @custID+'%')">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="tbsearch" DefaultValue="0" Name="custID" PropertyName="Text" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                         <asp:FormView ID="FormView1" runat="server" DataKeyNames="custID" DataSourceID="SqlDataSource1" OnItemInserted="FormView1_ItemInserted" HorizontalAlign="Center">
                             <EditItemTemplate>
                                 <table style="border: solid; width: 500px; text-align: left">
@@ -32,6 +44,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="lnameTextBox" ErrorMessage="Please Fill First Name" ForeColor="Red" ValidationGroup="e"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -40,6 +53,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="lnameTextBox" ErrorMessage="Please Fill Last Name" ForeColor="Red" ValidationGroup="e"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -48,6 +62,9 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="icnoTextBox" ErrorMessage="Please Fill IcNo" ForeColor="Red" ValidationGroup="e"></asp:RequiredFieldValidator>
+                                            <br />
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="icnoTextBox" ErrorMessage="Invalid ICno" ForeColor="Red" ValidationExpression="\d{12}" ValidationGroup="e"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -56,6 +73,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="memberBringTextBox" runat="server" Text='<%# Bind("memberBring") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="memberBringTextBox" ErrorMessage="Please Fill in No of Referral" ForeColor="Red" ValidationGroup="e"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -80,7 +98,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2" style="text-align: center">
-                                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" Text="Update" OnClick="UpdateButton_Click" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                            <asp:LinkButton ID="UpdateButton" runat="server" ValidationGroup="e" CausesValidation="True" Text="Update" OnClick="UpdateButton_Click" CssClass="w3-button w3-teal w3-round-xxlarge" />
                                             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
                                         </td>
                                     </tr>
@@ -94,6 +112,8 @@
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="custIDTextBox" runat="server" Text='<%# Bind("custID") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="fnameTextBox" ErrorMessage="Please Fill HpNo" ForeColor="Red" ValidationGroup="cs"></asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="custIDTextBox" ErrorMessage="Invalid HpNo" ForeColor="Red" ValidationExpression="\d{10,11}" ValidationGroup="cs"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -102,6 +122,7 @@
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="fnameTextBox" runat="server" Text='<%# Bind("fname") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="fnameTextBox" ErrorMessage="Please Fill First Name" ForeColor="Red" ValidationGroup="cs"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -110,6 +131,7 @@
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="lnameTextBox" runat="server" Text='<%# Bind("lname") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="lnameTextBox" ErrorMessage="Please Fill Last Name" ForeColor="Red" ValidationGroup="cs"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -118,6 +140,8 @@
                                         </td>
                                         <td colspan="2">
                                             <asp:TextBox ID="icnoTextBox" runat="server" Text='<%# Bind("icno") %>' CssClass="w3-input w3-border" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="icnoTextBox" Display="Dynamic" ErrorMessage="Please Fill ICNo" ForeColor="Red" ValidationGroup="cs"></asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="icnoTextBox" ErrorMessage="Invalid ICno" ForeColor="Red" ValidationExpression="\d{12}" ValidationGroup="cs"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -163,7 +187,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="3" style="text-align: center">
-                                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="w3-button w3-teal w3-round-xxlarge" ValidationGroup="cs" />
                                             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" />
                                         </td>
                                     </tr>
@@ -229,6 +253,15 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <asp:Label runat="server" Font-Bold="true">Discount Percentage : </asp:Label>
+                                            
+                                        </td>
+                                        <td>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# string.Format("{0:0.### %}",Eval("Discount Percentage")) %>' />
+                                        </td>
+                                        </tr>
+                                    <tr>
                                         <td colspan="2" style="text-align: center">
                                             <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="Edit_Click" CssClass="w3-button w3-teal w3-round-xxlarge"/>
                                             &nbsp;
@@ -269,7 +302,7 @@
                         <SortedDescendingCellStyle BackColor="#E5E5E5" />
                         <SortedDescendingHeaderStyle BackColor="#275353" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer] WHERE ([custID] = @custID)" DeleteCommand="DELETE FROM [Customer] WHERE [custID] = @custID" InsertCommand="INSERT INTO [Customer] ([custID], [fname], [lname],  [icno], [memberBring], [isMember], [discount]) VALUES (@custID, @fname, @lname,  @icno,0, @isMember, @discount)" OnUpdated="refresh_databind" UpdateCommand="UPDATE [Customer] SET [fname] = @fname, [lname] = @lname,  [icno] = @icno, [memberBring] = @memberBring, [isMember] = @isMember, [discount] = @discount WHERE [custID] = @custID" OnInserted="refresh_databind" OnDeleted="refresh_databind" OnSelecting="SqlDataSource1_Selecting">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="prc_customer" DeleteCommand="DELETE FROM [Customer] WHERE [custID] = @custID" InsertCommand="INSERT INTO [Customer] ([custID], [fname], [lname],  [icno], [memberBring], [isMember], [discount]) VALUES (@custID, @fname, @lname,  @icno,0, @isMember, @discount)" OnUpdated="refresh_databind" UpdateCommand="UPDATE [Customer] SET [fname] = @fname, [lname] = @lname,  [icno] = @icno, [memberBring] = @memberBring, [isMember] = @isMember, [discount] = @discount WHERE [custID] = @custID" OnInserted="refresh_databind" OnDeleted="refresh_databind" OnSelecting="SqlDataSource1_Selecting" SelectCommandType="StoredProcedure">
                         <DeleteParameters>
                             <asp:Parameter Name="custID" Type="String" />
                         </DeleteParameters>

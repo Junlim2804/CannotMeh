@@ -131,5 +131,17 @@ namespace CannotMeh
             }
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            GridView1.DataSourceID = "SqlDataSource2";
+            GridView1.DataBind();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            GridView1.DataSourceID = "SqlDataSource3";
+            GridView1.DataBind();
+        }
     }
 }

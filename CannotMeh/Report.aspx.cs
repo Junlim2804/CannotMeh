@@ -13,18 +13,21 @@ namespace CannotMeh
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            {
-             decimal total = 0;
-            foreach (GridViewRow row in GridView1.Rows)
-            {
-                String cellText = row.Cells[4].Text;
-                total += Convert.ToDecimal(cellText);
-            }
-            GridView1.FooterRow.Cells[3].Text = "Total";
-            GridView1.FooterRow.Cells[3].HorizontalAlign = HorizontalAlign.Right;
-            GridView1.FooterRow.Cells[4].Text = total.ToString("N2");
-            }
+            if (!IsPostBack)
+                if (GridView1.Rows.Count != 0)
+                {
+                    {
+                        decimal total = 0;
+                        foreach (GridViewRow row in GridView1.Rows)
+                        {
+                            String cellText = row.Cells[4].Text;
+                            total += Convert.ToDecimal(cellText);
+                        }
+                        GridView1.FooterRow.Cells[3].Text = "Total";
+                        GridView1.FooterRow.Cells[3].HorizontalAlign = HorizontalAlign.Right;
+                        GridView1.FooterRow.Cells[4].Text = total.ToString("N2");
+                    }
+                }
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)

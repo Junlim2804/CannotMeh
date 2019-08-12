@@ -190,5 +190,12 @@ namespace CannotMeh
             conn.Close();
 
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            GridView1.DataBind();
+        }
+
+
     }
 }

@@ -7,12 +7,22 @@
             <table style="width: 100%;">
                 <tr>
                     <td style="padding: 8px">
-                        <label>Date: </label>
+                        <label>CustomerID:
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Search" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />
+                        BeauticianID:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
+                        </label>
+                        &nbsp;
                     </td>
+              
                 </tr>
                 <tr>
                     <td style="vertical-align: middle; text-align: center; padding: 8px">
                         <div style="width: 350px">
+                        <label>Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
                             <asp:Calendar ID="Calendar1" SelectedDate="<%# DateTime.Today %>" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" Width="350px">
                                 <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                                 <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
@@ -22,12 +32,12 @@
                                 <TodayDayStyle BackColor="#CCCCCC" />
                             </asp:Calendar>
                         </div>
+
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        &nbsp;
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td>
@@ -142,7 +152,7 @@
         </div>
 
         <div class="w3-col m4">
-            <asp:GridView ID="GridView1" runat="server" Width="650px" AutoGenerateColumns="False" DataKeyNames="custID,BeatID,appdate" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" HorizontalAlign="Center">
+            <asp:GridView ID="GridView1" runat="server" Width="650px" AutoGenerateColumns="False" DataKeyNames="custID,BeatID,appdate" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" HorizontalAlign="Center" AllowSorting="True">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="custID" HeaderText="CustomerID" ReadOnly="True" SortExpression="custID" />
@@ -162,6 +172,17 @@
                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                 <SortedDescendingHeaderStyle BackColor="#275353" />
             </asp:GridView>
+            
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Appointment] WHERE ([custID] = @custID)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="TextBox1" Name="custID" PropertyName="Text" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Appointment] WHERE ([BeatID] = @BeatID)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="TextBox2" Name="BeatID" PropertyName="Text" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             
             <br />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="select * from appointment where cast(appdate as date)=CONVERT(datetime, @appdate, 101) and complete=0 ">
