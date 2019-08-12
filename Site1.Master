@@ -43,7 +43,7 @@
                     <a href="Payment.aspx" class="w3-bar-item w3-button">Appointment Payment</a>
                 </div>
             </div>
-            <a href="Report.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">ServReport</a>
+            <a href="Report.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Report</a>
         </div>
 
         <!-- Navbar on small screens -->
