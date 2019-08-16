@@ -6,7 +6,7 @@
         <table style="width: 100%; text-align: center">
             <tr>
                 <td>
-                    <asp:Button ID="Button1" runat="server" OnClick="LinkButton1_Click" Text="New Service" CssClass="w3-button w3-teal w3-round-xxlarge" />
+                    <asp:Button ID="Button1" runat="server" OnClick="LinkButton1_Click" Text="Add New Service" CssClass="w3-button w3-teal w3-round-xxlarge" />
                 </td>
             </tr>
             <tr>

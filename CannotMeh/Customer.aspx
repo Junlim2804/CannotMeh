@@ -5,7 +5,7 @@
         <table style="width: 100%; vertical-align: middle; text-align: center">
             <tr>
                 <td style="height: 41px">
-                    <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="New Customer" CssClass="w3-button w3-teal w3-round-xxlarge" Font-Bold="true" />
+                    <asp:Button ID="btnNew" runat="server" OnClick="btnNew_Click" Text="Add New Customer" CssClass="w3-button w3-teal w3-round-xxlarge" Font-Bold="true" />
                    
                 </td>
                 

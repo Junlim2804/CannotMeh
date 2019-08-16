@@ -52,10 +52,26 @@
         <div style="width: 400px; margin-left: auto; margin-right:auto;padding-top:50px">
                        <h3>Login</h3>
 
+                       <table style="width:100%;">
+                           <tr>
+                               <td>Username:</td>
+                               <td> <asp:Textbox id="UsernameTextbox" runat="server"/></td>
+                           </tr>
+                           <tr>
+                               <td>Password:</td>
+                               <td> <asp:Textbox id="PasswordTextbox" runat="server" TextMode="Password"  />
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>&nbsp;</td>
+                               <td>&nbsp;</td>
+                           </tr>
+                       </table>
+
             <br />
 
-          Username: <asp:Textbox id="UsernameTextbox" runat="server" /><br />
-          Password: <asp:Textbox id="PasswordTextbox" runat="server" TextMode="Password" />
+          &nbsp;<br />
+                       &nbsp;
                     <br />
 
           <asp:Label id="Msg" ForeColor="maroon" runat="server" /><br />
