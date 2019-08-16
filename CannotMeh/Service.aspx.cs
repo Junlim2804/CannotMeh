@@ -40,12 +40,15 @@ namespace CannotMeh
                 DataList1.SelectedIndex = e.Item.ItemIndex;
                 FormView1.Visible = true;
                 FormView1.ChangeMode(FormViewMode.ReadOnly);
+
                 FormView1.DataBind();
+                DataList1.Visible = false;
             }
             else if (e.CommandName == "Edit")
             {
                 FormView1.Visible = true;
                 FormView1.ChangeMode(FormViewMode.Edit);
+                DataList1.Visible = false;
                 FormView1.DataBind();
 
             }
@@ -97,6 +100,7 @@ namespace CannotMeh
                 FormView1.DataBind();
                 DataList1.SelectedIndex = -1;
                 DataList1.DataBind();
+                DataList1.Visible = true;
             }
         }
 

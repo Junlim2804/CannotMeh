@@ -13,12 +13,21 @@ namespace CannotMeh
     public partial class popup : System.Web.UI.Page
     {
         static String code, beatid, custid, amount,datenow,datein;
-     
-        
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+           // Response.Redirect("CannotMeh/Payment.aspx");
+        }
+
+        protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
+        {
+
+        }
+
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            amount = null;
             code = "";
             datenow= DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             datein = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss");

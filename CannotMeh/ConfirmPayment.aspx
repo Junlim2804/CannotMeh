@@ -15,10 +15,11 @@
         }
     </style>
 </head>
+
 <body>
     <form id="form1" runat="server">
 
-        <asp:FormView ID="FormView1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource1" HorizontalAlign="Center" Font-Size="Large">
+        <asp:FormView ID="FormView1" runat="server" CssClass="auto-style1" DataSourceID="SqlDataSource1" HorizontalAlign="Center" Font-Size="Large" OnPageIndexChanging="FormView1_PageIndexChanging">
             <ItemTemplate>
                 <table style="width: 600px; border: solid">
                     <tr>
@@ -83,19 +84,27 @@
                             <asp:Label ID="depositLabel" runat="server" Text='<%# Bind("deposit") %>' />
                         </td>
                     </tr>
+                          <tr>
+                        <td style="text-align: right">
+                            <asp:Label runat="server" Font-Bold="true">Discount : </asp:Label>
+                        </td>
+                        <td style="text-align: center">
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("discount","{0:0.00}") %>' />
+                        </td>
+                    </tr>
                     <tr>
                         <td style="text-align: right">
                             <asp:Label runat="server" Font-Bold="true">Payment : </asp:Label>
                         </td>
                         <td style="text-align: center">
-                            <asp:Label ID="PaymentLabel" runat="server" Text='<%# Bind("Payment") %>' />
+                            <asp:Label ID="PaymentLabel" runat="server" Text='<%# Bind("Payment","{0:0.00}") %>' />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center">
                             <asp:Button ID="btnPay" runat="server" OnClick="btnPay_Click" Text="Confirm Payment" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px" />
                             &nbsp;
-                            <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px"/>
+                            <asp:Button ID="btnCancel" runat="server" Text="Cancel"  CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px" OnClick="Button2_Click" PostBackUrl="~/CannotMeh/Payment.aspx" />
                         </td>
                     </tr>
                 </table>
@@ -195,7 +204,7 @@
                         <td colspan="2"  style="vertical-align: middle; text-align:center">
                             <asp:Button ID="Button1" runat="server" Text="Confirm Payment" OnClick="btnPay_Click" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px"/>
                             &nbsp;
-                            <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px" />
+                            <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="w3-button w3-teal w3-round-xxlarge" Width="190px"  />
                         </td>
                     </tr>
                 </table>
